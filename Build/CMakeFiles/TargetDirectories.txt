@@ -1,0 +1,12 @@
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/CMakeFiles/edit_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/CMakeFiles/rebuild_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/CMakeFiles/edit_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/CMakeFiles/rebuild_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Driver/CMakeFiles/driver.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Driver/CMakeFiles/edit_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Driver/CMakeFiles/rebuild_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/CMakeFiles/edit_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/CMakeFiles/rebuild_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/Matrix/CMakeFiles/Matrix.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/Matrix/CMakeFiles/edit_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/Matrix/CMakeFiles/rebuild_cache.dir
