@@ -35,28 +35,33 @@ static Layer * xCreateOutputLayer(uint16_t numOutputs, uint16_t numInputs, doubl
     return newOutputLayer;
 }
 
+/* TODO: Seg falt from this function, something with memory management*/
 static Layer * xCreateHiddenLayers(uint16_t numHiddenLayers, uint16_t * numHiddenNeurons, uint16_t numInputs, double *** weights, double ** biases)
 {
     Layer * hiddenLayers = (Layer *) malloc(numHiddenLayers * sizeof(Layer));
 
     for (uint16_t currLayer = 0; currLayer < numHiddenLayers; currLayer++)
     {
-        hiddenLayers[currLayer].numNeurons = numHiddenNeurons[currLayer];
-        hiddenLayers[currLayer].neurons = (Neuron *) malloc(numHiddenNeurons[currLayer] * sizeof(Neuron));
+        Layer * currHiddenLayer = (Layer *) malloc(sizeof(Layer));
+        currHiddenLayer->numNeurons = numHiddenNeurons[currLayer];
+        currHiddenLayer->neurons = (Neuron *) malloc(numHiddenNeurons[currLayer] * sizeof(Neuron));
         for (uint16_t currNeuron = 0; currNeuron < numHiddenNeurons[currLayer]; currNeuron++)
         {
-            hiddenLayers[currLayer].neurons[currNeuron].numInputs = numInputs;
-            hiddenLayers[currLayer].neurons[currNeuron].weights = (double *) malloc(numInputs * sizeof(double));
-
+            currHiddenLayer->neurons[currNeuron].numInputs = numInputs;
+            currHiddenLayer->neurons[currNeuron].weights = (double *) malloc(numInputs * sizeof(double));
             for (uint16_t currWeight = 0; currWeight < numInputs; currWeight++)
             {
-                hiddenLayers[currLayer].neurons[currNeuron].weights[currWeight] = weights[currLayer][currNeuron][currWeight];
+                currHiddenLayer->neurons[currNeuron].weights[currWeight] = weights[currLayer][currNeuron][currWeight];
             }
-            hiddenLayers[currLayer].neurons[currNeuron].bias = biases[currLayer][currNeuron];
+            currHiddenLayer->neurons[currNeuron].bias = biases[currLayer][currNeuron];
         }
+        hiddenLayers[currLayer] = *currHiddenLayer;
+        free(currHiddenLayer);
     }
     return hiddenLayers;
 }
+
+
 
 NeuralNetwork * xCreateNeuralNetwork(uint16_t numInputs, uint16_t numHiddenLayers, uint16_t * numHiddenNurons, uint16_t numOutputs, double *** hiddenWeights, double ** hiddenBiases, double ** outputWeights, double * outputBiases)
 {
