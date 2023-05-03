@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules
+# Install script for directory: C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/NeuralNetwork
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,12 +35,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/MinGW/bin/objdump.exe")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/Matrix/cmake_install.cmake")
-  include("C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/NeuralNetwork/cmake_install.cmake")
-
 endif()
 

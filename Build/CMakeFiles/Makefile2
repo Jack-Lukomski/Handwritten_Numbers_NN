@@ -111,14 +111,17 @@ Sources/Driver/clean: Sources/Driver/CMakeFiles/driver.dir/clean
 
 # Recursive "all" directory target.
 Sources/Modules/all: Sources/Modules/Matrix/all
+Sources/Modules/all: Sources/Modules/NeuralNetwork/all
 .PHONY : Sources/Modules/all
 
 # Recursive "preinstall" directory target.
 Sources/Modules/preinstall: Sources/Modules/Matrix/preinstall
+Sources/Modules/preinstall: Sources/Modules/NeuralNetwork/preinstall
 .PHONY : Sources/Modules/preinstall
 
 # Recursive "clean" directory target.
 Sources/Modules/clean: Sources/Modules/Matrix/clean
+Sources/Modules/clean: Sources/Modules/NeuralNetwork/clean
 .PHONY : Sources/Modules/clean
 
 #=============================================================================
@@ -135,6 +138,21 @@ Sources/Modules/Matrix/preinstall:
 # Recursive "clean" directory target.
 Sources/Modules/Matrix/clean: Sources/Modules/Matrix/CMakeFiles/Matrix.dir/clean
 .PHONY : Sources/Modules/Matrix/clean
+
+#=============================================================================
+# Directory level rules for directory Sources/Modules/NeuralNetwork
+
+# Recursive "all" directory target.
+Sources/Modules/NeuralNetwork/all: Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
+.PHONY : Sources/Modules/NeuralNetwork/all
+
+# Recursive "preinstall" directory target.
+Sources/Modules/NeuralNetwork/preinstall:
+.PHONY : Sources/Modules/NeuralNetwork/preinstall
+
+# Recursive "clean" directory target.
+Sources/Modules/NeuralNetwork/clean: Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/clean
+.PHONY : Sources/Modules/NeuralNetwork/clean
 
 #=============================================================================
 # Target rules for target Sources/Modules/Matrix/CMakeFiles/Matrix.dir
@@ -163,18 +181,45 @@ Sources/Modules/Matrix/CMakeFiles/Matrix.dir/clean:
 .PHONY : Sources/Modules/Matrix/CMakeFiles/Matrix.dir/clean
 
 #=============================================================================
+# Target rules for target Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir
+
+# All Build rule for target.
+Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all:
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/depend
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=3,4 "Built target NeuralNetwork"
+.PHONY : Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
+
+# Build rule for subdir invocation for target.
+Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 0
+.PHONY : Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/rule
+
+# Convenience name for target.
+NeuralNetwork: Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/rule
+.PHONY : NeuralNetwork
+
+# clean rule for target.
+Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/clean
+.PHONY : Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/clean
+
+#=============================================================================
 # Target rules for target Sources/Driver/CMakeFiles/driver.dir
 
 # All Build rule for target.
 Sources/Driver/CMakeFiles/driver.dir/all: Sources/Modules/Matrix/CMakeFiles/Matrix.dir/all
+Sources/Driver/CMakeFiles/driver.dir/all: Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
 	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/depend
 	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=3,4 "Built target driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=5,6 "Built target driver"
 .PHONY : Sources/Driver/CMakeFiles/driver.dir/all
 
 # Build rule for subdir invocation for target.
 Sources/Driver/CMakeFiles/driver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Driver/CMakeFiles/driver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 0
 .PHONY : Sources/Driver/CMakeFiles/driver.dir/rule

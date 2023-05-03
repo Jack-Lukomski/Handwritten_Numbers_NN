@@ -1,6 +1,5 @@
 #include "../Modules/Matrix/matrix.h"
 
-
 int main(void)
 {
     double m1[9] = {1.2, 34.2, 
@@ -20,7 +19,7 @@ int main(void)
     Matrix * ma3 = xCreateMatrix(3, 3, m3);
     Matrix * ma4 = xCreateMatrix(1, 3, m4);
 
-    Matrix * dotp = xDotProduct(ma4, ma3);
+    Matrix * dotp = xDotProduct(ma1, ma2);
 
     vPrintMatrix(dotp);
 
