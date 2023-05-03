@@ -116,19 +116,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named driver
-
-# Build rule for target.
-driver: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 driver
-.PHONY : driver
-
-# fast build rule for target.
-driver/fast:
-	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/build
-.PHONY : driver/fast
-
-#=============================================================================
 # Target rules for targets named Matrix
 
 # Build rule for target.
@@ -140,6 +127,19 @@ Matrix: cmake_check_build_system
 Matrix/fast:
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\Matrix\CMakeFiles\Matrix.dir\build.make Sources/Modules/Matrix/CMakeFiles/Matrix.dir/build
 .PHONY : Matrix/fast
+
+#=============================================================================
+# Target rules for targets named driver
+
+# Build rule for target.
+driver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 driver
+.PHONY : driver
+
+# fast build rule for target.
+driver/fast:
+	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/build
+.PHONY : driver/fast
 
 # Help Target
 help:
