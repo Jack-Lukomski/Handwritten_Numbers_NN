@@ -4,32 +4,13 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct
-{
-    uint16_t numInputs;
-    double * weights;
-    double bias;
-} Neuron;
-
-typedef struct
-{
-    uint16_t numNeurons;
-    Neuron * neurons;
-} Layer;
+#include "../Matrix/matrix.h"
 
 typedef struct {
-    uint16_t numInputs;
-    Layer inputLayer;
-    uint16_t numHiddenLayers;
-    Layer * hiddenLayers;
-    uint16_t numOutputs;
-    Layer outputLayer;
-} NeuralNetwork;
+    Matrix layer;
+} Layer;
 
-static Layer * xCreateInputLayer(uint16_t numInputs);
-static Layer * xCreateOutputLayer(uint16_t numOutputs, uint16_t numInputs, double ** weights, double * biases);
-static Layer * xCreateHiddenLayers(uint16_t numHiddenLayers, uint16_t * numHiddenNeurons, uint16_t numInputs, double *** weights, double ** biases);
-NeuralNetwork * xCreateNeuralNetwork(uint16_t numInputs, uint16_t numHiddenLayers, uint16_t * numHiddenNurons, uint16_t numOutputs, double *** hiddenWeights, double ** hiddenBiases, double ** outputWeights, double * outputBiases);
+
+
 
 #endif
