@@ -56,16 +56,12 @@ int main(void)
 
     double outputBiases[1] = {1.2};
 
-    // Create temporary arrays for weights and biases
-    double ** hiddenWeights2D = (double **) hiddenWeights;
-    double * hiddenBiases1D = (double *) hiddenBiases;
-
     // Create the neural network
-    NeuralNetwork * NN = xCreateNeuralNetwork(numInputs, numHiddenLayers, numHiddenNeurons, numOutputs, &hiddenWeights2D, &hiddenBiases1D, (double **) outputWeights, outputBiases);
+    NeuralNetwork * NN = xCreateNeuralNetwork(numInputs, numHiddenLayers, numHiddenNeurons, numOutputs, hiddenWeights, (double **) hiddenBiases, (double **) outputWeights, (double *) outputBiases);
 
     printf("s");
 
-    free(NN);
+    //free(NN);
     return 0;
 }
 

@@ -56,12 +56,10 @@ static Layer * xCreateHiddenLayers(uint16_t numHiddenLayers, uint16_t * numHidde
             currHiddenLayer->neurons[currNeuron].bias = biases[currLayer][currNeuron];
         }
         hiddenLayers[currLayer] = *currHiddenLayer;
-        free(currHiddenLayer);
+        //free(currHiddenLayer);
     }
     return hiddenLayers;
 }
-
-
 
 NeuralNetwork * xCreateNeuralNetwork(uint16_t numInputs, uint16_t numHiddenLayers, uint16_t * numHiddenNurons, uint16_t numOutputs, double *** hiddenWeights, double ** hiddenBiases, double ** outputWeights, double * outputBiases)
 {
