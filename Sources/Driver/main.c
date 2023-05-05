@@ -29,43 +29,42 @@
 
 int main(void)
 {
-    uint16_t numInputs = 2;
-    uint16_t numHiddenLayers = 2;
-    uint16_t numHiddenNeurons[2] = {2, 2};
-    uint16_t numOutputs = 1;
-
-    double hiddenWeights[2][2][2] = {
-        {
-            {1.0, 2.0},
-            {3.0, 4.0}
-        },
-        {
-            {5.0, 6.0},
-            {7.0, 8.0}
-        }
+    double inputMatrix[2] = {
+        1.2, 2.2
     };
 
-    double hiddenBiases[2][2] = {
-        {3.2, 1.2},
-        {1.6, 8.6}
+    double firstHL[8] = {
+        1.2, 3.4, 5.5, 5.6, // connection between one neuron
+        4.5, 6.7, 3.2, 6.1,
     };
 
-    double outputWeights[1][2] = {
-        {2.8, 8.8}
+    double secondHL[8] = {
+        1.9, 3.4, 5.5, 5.6, // connection between one neuron
+        4.5, 6.7, 3.2, 1.1,
     };
 
-    double outputBiases[1] = {1.2};
+    double firstHLBiases[4] = {
+        1.2, 3.4, 3.2, 4.4,
+    };
 
-    // Create temporary arrays for weights and biases
-    double ** hiddenWeights2D = (double **) hiddenWeights;
-    double * hiddenBiases1D = (double *) hiddenBiases;
+    double secondHLBiases[4] = {
+        8.2, 3.2, 3.2, 5.4,
+    };
 
-    // Create the neural network
-    NeuralNetwork * NN = xCreateNeuralNetwork(numInputs, numHiddenLayers, numHiddenNeurons, numOutputs, &hiddenWeights2D, &hiddenBiases1D, (double **) outputWeights, outputBiases);
+    Matrix * ipMatrix = xCreateMatrix(1, 2, inputMatrix);
 
-    printf("s");
+    Matrix *hlArr[2];
+    Matrix *hlBias[2];
 
-    free(NN);
-    return 0;
+
+    InputLayer * newIL = xConstuctInputLayer(4, ipMatrix);
+    HiddenLayer * newHL = xConstructHiddenLayers(1, hlArr, hlBias);
+
+    vPrintMatrix(newIL->inputLayer);
+    printf("\n\n");
+    vPrintMatrix(newHL->biases);
+    printf("\n\n");
+    //printf("\n\n");
+    //vPrintMatrix(hlMatric);
 }
 

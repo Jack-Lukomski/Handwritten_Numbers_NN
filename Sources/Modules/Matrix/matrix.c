@@ -86,6 +86,7 @@ static double * xGetCol(Matrix * m, uint8_t colNum)
     return colRetVal;
 }
 
+// TODO: FIX THIS FUNCTION TO MAKE IT WORK FOR ALL
 void vPrintMatrix(Matrix * m)
 {
     for(uint8_t i = 0; i < m->rows*m->cols; i+= m->rows)

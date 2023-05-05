@@ -10,4 +10,5 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj: \
  c:\mingw\include\strings.h c:\mingw\include\wchar.h \
  c:\mingw\include\stdio.h c:\mingw\include\sys/types.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
- c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\neuralnetwork\neuralnetwork.h
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\neuralnetwork\neuralnetwork.h \
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h

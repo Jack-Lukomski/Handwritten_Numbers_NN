@@ -7,4 +7,7 @@ Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/neuralNetwork.c.obj: 
  c:\mingw\include\sdkddkver.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
  c:\mingw\include\stdlib.h c:\mingw\include\string.h \
- c:\mingw\include\strings.h c:\mingw\include\wchar.h
+ c:\mingw\include\strings.h c:\mingw\include\wchar.h \
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys/types.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h
