@@ -89,15 +89,11 @@ static double * xGetCol(Matrix * m, uint8_t colNum)
 // TODO: FIX THIS FUNCTION TO MAKE IT WORK FOR ALL
 void vPrintMatrix(Matrix * m)
 {
-    for(uint8_t i = 0; i < m->rows*m->cols; i+= m->rows)
+    for (uint16_t row = 0; row < m->rows; row++)
     {
-        for(uint8_t j = 0; j < m->cols; j++)
+        for (uint16_t col = 0; col < m->cols; col++)
         {
-            printf("%f ", m->matrixData[i+j]);
-        }
-        if (m->rows == 1) 
-        {
-            break;
+            printf("%f ", m->matrixData[row * m->cols + col]);
         }
         printf("\n");
     }

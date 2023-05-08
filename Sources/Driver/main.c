@@ -51,18 +51,33 @@ int main(void)
         8.2, 3.2, 3.2, 5.4,
     };
 
+    double oMatrix[2] = {
+        1.2, 2.2
+    };
+
+    double oMatrixBiases[2] = {
+        1.2, 2.2
+    };
+
     Matrix * ipMatrix = xCreateMatrix(1, 2, inputMatrix);
 
     Matrix *hlArr[2];
     Matrix *hlBias[2];
 
+    hlArr[0] = xCreateMatrix(2, 4, firstHL);
+    hlBias[0] = xCreateMatrix(1, 4, firstHLBiases);
 
-    InputLayer * newIL = xConstuctInputLayer(4, ipMatrix);
-    HiddenLayer * newHL = xConstructHiddenLayers(1, hlArr, hlBias);
+    hlArr[1] = xCreateMatrix(2, 4, secondHL);
+    hlBias[1] = xCreateMatrix(1, 4, secondHLBiases);
 
-    vPrintMatrix(newIL->inputLayer);
-    printf("\n\n");
-    vPrintMatrix(newHL->biases);
+    Matrix * op = xCreateMatrix(1, 2, oMatrix);
+    Matrix * opB = xCreateMatrix(1, 2, oMatrixBiases);
+
+    NerualNetwork * NN = xConstructNeuralNetwork(ipMatrix, 2, hlArr, hlBias, op, opB);
+
+    // vPrintMatrix(newIL->inputLayer);
+    // printf("\n\n");
+    vPrintMatrix(NN->hiddenLayers[1]->hiddenLayer);
     printf("\n\n");
     //printf("\n\n");
     //vPrintMatrix(hlMatric);

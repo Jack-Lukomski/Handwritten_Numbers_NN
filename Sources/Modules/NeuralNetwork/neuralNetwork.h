@@ -17,20 +17,22 @@ typedef struct {
 } HiddenLayer;
 
 typedef struct {
-    uint16_t numOutputs;
-    float * biases;
-    Matrix outputLayer;
+    Matrix * biases;
+    Matrix * outputLayer;
 } OutputLayer;
 
 typedef struct
 {
-    InputLayer inputLayer;
-    HiddenLayer * hiddenLayers;
-    OutputLayer outputLayer;
+    InputLayer * inputLayer;
+    uint16_t numHiddenLayers;
+    HiddenLayer ** hiddenLayers;
+    OutputLayer * outputLayer;
 } NerualNetwork;
 
-InputLayer * xConstuctInputLayer (uint16_t numInputs, Matrix * inputMatrix);
-HiddenLayer * xConstructHiddenLayers (uint16_t numLayers, Matrix * hiddenLayerMatrixs, Matrix * biases);
+static InputLayer * xConstuctInputLayer (Matrix * inputMatrix);
+static HiddenLayer * xConstructHiddenLayer (Matrix * hiddenLayerMatrix, Matrix * biases);
+static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix * biases);
+NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases);
 
 
 #endif
