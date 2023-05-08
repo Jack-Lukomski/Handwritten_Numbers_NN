@@ -41,9 +41,8 @@ int main(void)
     Matrix * OUTPUT_LAYER_BIASES = xCreateMatrix(1, 2, OutputLayerBiases);
 
     NerualNetwork * NN = xConstructNeuralNetwork(INPUT_LAYER, 1, HIDDEN_LAYER, HIDDEN_LAYER_BIASES, OUTPUT_LAYER, OUTPUT_LAYER_BIASES);
-
-    xComputeOutputSums(NN, Sigmoid);
-
-    // vPrintAllLayers(NN);
+    Matrix * m = xComputeOutputSums(NN, Sigmoid);
+    vPrintMatrix(m);
+    //vPrintAllLayers(NN);
 }
 

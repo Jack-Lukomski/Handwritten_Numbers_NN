@@ -21,5 +21,6 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj
  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/NeuralNetwork/neuralNetwork.h
  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/matrix.h
  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h
+ C:/MinGW/include/math.h
  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h
 

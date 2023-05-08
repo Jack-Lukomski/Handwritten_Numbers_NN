@@ -10,7 +10,8 @@ Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/activatio
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
-  C:/MinGW/include/stdlib.h
+  C:/MinGW/include/stdlib.h \
+  C:/MinGW/include/math.h
 
 
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.c:
@@ -32,3 +33,5 @@ C:/MinGW/include/w32api.h:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h:
 
 C:/MinGW/include/stdlib.h:
+
+C:/MinGW/include/math.h:

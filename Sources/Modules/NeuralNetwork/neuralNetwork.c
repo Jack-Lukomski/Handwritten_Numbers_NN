@@ -46,11 +46,25 @@ NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHidde
 Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction)
 {
     ActivationFunction * currActivationFunction = xCreateActivationFunction(activationFunction);
+    Matrix * outputSumMatrix = (Matrix *) malloc(sizeof(Matrix));
+    // Still need to add part that applies the activation function to all numbers.
+    for (uint16_t currLayer = 0; currLayer < NN->numHiddenLayers; currLayer++)
+    {
+        if (currLayer == 0)
+        {
+            outputSumMatrix = xMatrixAdd(xDotProduct(NN->inputLayer->inputLayer, NN->hiddenLayers[currLayer]->hiddenLayer), NN->hiddenLayers[currLayer]->biases);
+        }
+        else 
+        {
+            outputSumMatrix = xMatrixAdd(xDotProduct(outputSumMatrix, NN->hiddenLayers[currLayer]->hiddenLayer), NN->hiddenLayers[currLayer]->biases);
+        }
+    }
 
-    
+    outputSumMatrix = xMatrixAdd(xDotProduct(outputSumMatrix, NN->outputLayer->outputLayer), NN->outputLayer->biases);
 
     free(currActivationFunction);
-    return NULL;
+
+    return outputSumMatrix;
 }
 
 void vPrintAllLayers (NerualNetwork * NN)
