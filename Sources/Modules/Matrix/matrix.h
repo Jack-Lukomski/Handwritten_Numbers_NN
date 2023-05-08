@@ -6,7 +6,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-typedef struct Matrix {
+typedef struct {
     uint8_t rows;
     uint8_t cols;
     double * matrixData;

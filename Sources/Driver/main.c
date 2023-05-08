@@ -29,39 +29,57 @@
 
 int main(void)
 {
-    uint16_t numInputs = 2;
-    uint16_t numHiddenLayers = 2;
-    uint16_t numHiddenNeurons[2] = {2, 2};
-    uint16_t numOutputs = 1;
-
-    double hiddenWeights[2][2][2] = {
-        {
-            {1.0, 2.0},
-            {3.0, 4.0}
-        },
-        {
-            {5.0, 6.0},
-            {7.0, 8.0}
-        }
+    double inputMatrix[2] = {
+        1.2, 2.2
     };
 
-    double hiddenBiases[2][2] = {
-        {3.2, 1.2},
-        {1.6, 8.6}
+    double firstHL[8] = {
+        1.2, 3.4, 5.5, 5.6, // connection between one neuron
+        4.5, 6.7, 3.2, 6.1,
     };
 
-    double outputWeights[1][2] = {
-        {2.8, 8.8}
+    double secondHL[8] = {
+        1.9, 3.4, 5.5, 5.6, // connection between one neuron
+        4.5, 6.7, 3.2, 1.1,
     };
 
-    double outputBiases[1] = {1.2};
+    double firstHLBiases[4] = {
+        1.2, 3.4, 3.2, 4.4,
+    };
 
-    // Create the neural network
-    NeuralNetwork * NN = xCreateNeuralNetwork(numInputs, numHiddenLayers, numHiddenNeurons, numOutputs, hiddenWeights, (double **) hiddenBiases, (double **) outputWeights, (double *) outputBiases);
+    double secondHLBiases[4] = {
+        8.2, 3.2, 3.2, 5.4,
+    };
 
-    printf("s");
+    double oMatrix[2] = {
+        1.2, 2.2
+    };
 
-    //free(NN);
-    return 0;
+    double oMatrixBiases[2] = {
+        1.2, 2.2
+    };
+
+    Matrix * ipMatrix = xCreateMatrix(1, 2, inputMatrix);
+
+    Matrix *hlArr[2];
+    Matrix *hlBias[2];
+
+    hlArr[0] = xCreateMatrix(2, 4, firstHL);
+    hlBias[0] = xCreateMatrix(1, 4, firstHLBiases);
+
+    hlArr[1] = xCreateMatrix(2, 4, secondHL);
+    hlBias[1] = xCreateMatrix(1, 4, secondHLBiases);
+
+    Matrix * op = xCreateMatrix(1, 2, oMatrix);
+    Matrix * opB = xCreateMatrix(1, 2, oMatrixBiases);
+
+    NerualNetwork * NN = xConstructNeuralNetwork(ipMatrix, 2, hlArr, hlBias, op, opB);
+
+    // vPrintMatrix(newIL->inputLayer);
+    // printf("\n\n");
+    vPrintMatrix(NN->hiddenLayers[1]->hiddenLayer);
+    printf("\n\n");
+    //printf("\n\n");
+    //vPrintMatrix(hlMatric);
 }
 

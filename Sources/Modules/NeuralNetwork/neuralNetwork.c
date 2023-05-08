@@ -1,47 +1,43 @@
 #include "neuralNetwork.h"
 
-static Layer * xCreateInputLayer(uint16_t numInputs)
+static InputLayer * xConstuctInputLayer (Matrix * inputMatrix)
 {
-    Layer * newInputLayer = (Layer *) malloc(sizeof(Layer));
-    newInputLayer->numNeurons = numInputs;
-    newInputLayer->neurons = (Neuron *) malloc(numInputs * sizeof(Neuron));
-
-    for (uint16_t currNuron = 0; currNuron < numInputs; currNuron++)
-    {
-        newInputLayer->neurons[currNuron].numInputs = 0;
-        newInputLayer->neurons[currNuron].weights = NULL;
-        newInputLayer->neurons[currNuron].bias = 0.0;
-    }
+    InputLayer * newInputLayer = (InputLayer *) malloc(sizeof(InputLayer));
+    newInputLayer->inputLayer = inputMatrix;
 
     return newInputLayer;
 }
 
-static Layer * xCreateOutputLayer(uint16_t numOutputs, uint16_t numInputs, double ** weights, double * biases)
+static HiddenLayer * xConstructHiddenLayer (Matrix * hiddenLayerMatrix, Matrix * biases)
 {
-    Layer * newOutputLayer = (Layer *) malloc(sizeof(Layer));
-    newOutputLayer->numNeurons = numOutputs;
-    newOutputLayer->neurons = (Neuron *) malloc(numOutputs * sizeof(Neuron));
+    HiddenLayer * newHiddenLayer = (HiddenLayer *) malloc(sizeof(HiddenLayer));
+    newHiddenLayer->biases = biases;
+    newHiddenLayer->hiddenLayer = hiddenLayerMatrix;
 
-    for (uint16_t currNeuron = 0; currNeuron < numOutputs; currNeuron++)
-    {
-        newOutputLayer->neurons[currNeuron].numInputs = numInputs;
-        newOutputLayer->neurons[currNeuron].weights = (double *) malloc(numInputs * sizeof(double));
-        for (uint16_t currWeight = 0; currWeight < numInputs; currWeight++)
-        {
-            newOutputLayer->neurons[currNeuron].weights[currWeight] = weights[currNeuron][currWeight];
-        }
-        newOutputLayer->neurons[currNeuron].bias = biases[currNeuron];
-    }
+    return newHiddenLayer;
+}
+
+static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix * biases)
+{
+    OutputLayer * newOutputLayer = (OutputLayer *) malloc(sizeof(OutputLayer));
+    newOutputLayer->biases = biases;
+    newOutputLayer->outputLayer = outputLayerMatrix;
+
     return newOutputLayer;
 }
 
-/* TODO: Seg falt from this function, something with memory management*/
-static Layer * xCreateHiddenLayers(uint16_t numHiddenLayers, uint16_t * numHiddenNeurons, uint16_t numInputs, double *** weights, double ** biases)
+NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases)
 {
-    Layer * hiddenLayers = (Layer *) malloc(numHiddenLayers * sizeof(Layer));
+    NerualNetwork * newNN = (NerualNetwork *) malloc(sizeof(NerualNetwork));
 
-    for (uint16_t currLayer = 0; currLayer < numHiddenLayers; currLayer++)
+    newNN->inputLayer = xConstuctInputLayer(inputMatrix);
+    newNN->outputLayer = xConstructOutputLayer(outputLayerMatrix, outputLayerBiases);
+    newNN->numHiddenLayers = numHiddenLayers;
+    newNN->hiddenLayers = (HiddenLayer **) malloc(numHiddenLayers * sizeof(HiddenLayer *));
+
+    for (uint16_t currHL = 0; currHL < numHiddenLayers; currHL++)
     {
+<<<<<<< HEAD
         Layer * currHiddenLayer = (Layer *) malloc(sizeof(Layer));
         currHiddenLayer->numNeurons = numHiddenNeurons[currLayer];
         currHiddenLayer->neurons = (Neuron *) malloc(numHiddenNeurons[currLayer] * sizeof(Neuron));
@@ -57,10 +53,12 @@ static Layer * xCreateHiddenLayers(uint16_t numHiddenLayers, uint16_t * numHidde
         }
         hiddenLayers[currLayer] = *currHiddenLayer;
         //free(currHiddenLayer);
+=======
+        newNN->hiddenLayers[currHL] = xConstructHiddenLayer(hiddenLayerMatricies[currHL], hiddenLayerBiases[currHL]);
+>>>>>>> RedoingNNModuleToIncoperateMatrix
     }
-    return hiddenLayers;
-}
 
+<<<<<<< HEAD
 NeuralNetwork * xCreateNeuralNetwork(uint16_t numInputs, uint16_t numHiddenLayers, uint16_t * numHiddenNurons, uint16_t numOutputs, double *** hiddenWeights, double ** hiddenBiases, double ** outputWeights, double * outputBiases)
 {
     Layer * inputLayer = xCreateInputLayer(numInputs);
@@ -79,4 +77,7 @@ NeuralNetwork * xCreateNeuralNetwork(uint16_t numInputs, uint16_t numHiddenLayer
     free(outputLayer);
 
     return neuralNetwork;
+=======
+    return newNN;
+>>>>>>> RedoingNNModuleToIncoperateMatrix
 }

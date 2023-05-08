@@ -4,32 +4,35 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct
-{
-    uint16_t numInputs;
-    double * weights;
-    double bias;
-} Neuron;
-
-typedef struct
-{
-    uint16_t numNeurons;
-    Neuron * neurons;
-} Layer;
+#include "../Matrix/matrix.h"
 
 typedef struct {
     uint16_t numInputs;
-    Layer inputLayer;
-    uint16_t numHiddenLayers;
-    Layer * hiddenLayers;
-    uint16_t numOutputs;
-    Layer outputLayer;
-} NeuralNetwork;
+    Matrix * inputLayer;
+} InputLayer;
 
-static Layer * xCreateInputLayer(uint16_t numInputs);
-static Layer * xCreateOutputLayer(uint16_t numOutputs, uint16_t numInputs, double ** weights, double * biases);
-static Layer * xCreateHiddenLayers(uint16_t numHiddenLayers, uint16_t * numHiddenNeurons, uint16_t numInputs, double *** weights, double ** biases);
-NeuralNetwork * xCreateNeuralNetwork(uint16_t numInputs, uint16_t numHiddenLayers, uint16_t * numHiddenNurons, uint16_t numOutputs, double *** hiddenWeights, double ** hiddenBiases, double ** outputWeights, double * outputBiases);
+typedef struct {
+    Matrix * biases;
+    Matrix * hiddenLayer;
+} HiddenLayer;
+
+typedef struct {
+    Matrix * biases;
+    Matrix * outputLayer;
+} OutputLayer;
+
+typedef struct
+{
+    InputLayer * inputLayer;
+    uint16_t numHiddenLayers;
+    HiddenLayer ** hiddenLayers;
+    OutputLayer * outputLayer;
+} NerualNetwork;
+
+static InputLayer * xConstuctInputLayer (Matrix * inputMatrix);
+static HiddenLayer * xConstructHiddenLayer (Matrix * hiddenLayerMatrix, Matrix * biases);
+static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix * biases);
+NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases);
+
 
 #endif
