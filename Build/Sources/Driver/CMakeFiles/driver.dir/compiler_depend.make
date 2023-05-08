@@ -18,7 +18,9 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj: C:/Users/jtluk/GitHub/Handwritt
   C:/MinGW/include/sys/types.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/NeuralNetwork/neuralNetwork.h \
-  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/matrix.h
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/matrix.h \
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h \
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h
 
 
 C:/MinGW/include/_mingw.h:
@@ -46,6 +48,8 @@ C:/MinGW/include/stdlib.h:
 C:/MinGW/include/string.h:
 
 C:/MinGW/include/strings.h:
+
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h:
 
 C:/MinGW/include/wchar.h:
 

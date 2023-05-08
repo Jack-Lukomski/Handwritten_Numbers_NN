@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\Sources\Modules\ActivationFunctions\\CMakeFiles\progress.marks
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/ActivationFunctions/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/ActivationFunctions/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,70 +102,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/ActivationFunctions/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/ActivationFunctions/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named Matrix
+# Convenience name for target.
+Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/rule:
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/rule
+.PHONY : Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/rule
 
-# Build rule for target.
-Matrix: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Matrix
-.PHONY : Matrix
-
-# fast build rule for target.
-Matrix/fast:
-	$(MAKE) $(MAKESILENT) -f Sources\Modules\Matrix\CMakeFiles\Matrix.dir\build.make Sources/Modules/Matrix/CMakeFiles/Matrix.dir/build
-.PHONY : Matrix/fast
-
-#=============================================================================
-# Target rules for targets named NeuralNetwork
-
-# Build rule for target.
-NeuralNetwork: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 NeuralNetwork
-.PHONY : NeuralNetwork
-
-# fast build rule for target.
-NeuralNetwork/fast:
-	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/build
-.PHONY : NeuralNetwork/fast
-
-#=============================================================================
-# Target rules for targets named ActivationFunctions
-
-# Build rule for target.
-ActivationFunctions: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ActivationFunctions
+# Convenience name for target.
+ActivationFunctions: Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/rule
 .PHONY : ActivationFunctions
 
 # fast build rule for target.
 ActivationFunctions/fast:
-	$(MAKE) $(MAKESILENT) -f Sources\Modules\ActivationFunctions\CMakeFiles\ActivationFunctions.dir\build.make Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/build
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f Sources\Modules\ActivationFunctions\CMakeFiles\ActivationFunctions.dir\build.make Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/build
 .PHONY : ActivationFunctions/fast
 
-#=============================================================================
-# Target rules for targets named driver
+activationFunctions.obj: activationFunctions.c.obj
+.PHONY : activationFunctions.obj
 
-# Build rule for target.
-driver: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 driver
-.PHONY : driver
+# target to build an object file
+activationFunctions.c.obj:
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f Sources\Modules\ActivationFunctions\CMakeFiles\ActivationFunctions.dir\build.make Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/activationFunctions.c.obj
+.PHONY : activationFunctions.c.obj
 
-# fast build rule for target.
-driver/fast:
-	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/build
-.PHONY : driver/fast
+activationFunctions.i: activationFunctions.c.i
+.PHONY : activationFunctions.i
+
+# target to preprocess a source file
+activationFunctions.c.i:
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f Sources\Modules\ActivationFunctions\CMakeFiles\ActivationFunctions.dir\build.make Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/activationFunctions.c.i
+.PHONY : activationFunctions.c.i
+
+activationFunctions.s: activationFunctions.c.s
+.PHONY : activationFunctions.s
+
+# target to generate assembly for a file
+activationFunctions.c.s:
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(MAKE) $(MAKESILENT) -f Sources\Modules\ActivationFunctions\CMakeFiles\ActivationFunctions.dir\build.make Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/activationFunctions.c.s
+.PHONY : activationFunctions.c.s
 
 # Help Target
 help:
@@ -176,9 +162,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ActivationFunctions
-	@echo ... Matrix
-	@echo ... NeuralNetwork
-	@echo ... driver
+	@echo ... activationFunctions.obj
+	@echo ... activationFunctions.i
+	@echo ... activationFunctions.s
 .PHONY : help
 
 
@@ -190,6 +176,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

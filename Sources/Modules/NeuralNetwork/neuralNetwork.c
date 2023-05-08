@@ -43,6 +43,16 @@ NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHidde
     return newNN;
 }
 
+Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction)
+{
+    ActivationFunction * currActivationFunction = xCreateActivationFunction(activationFunction);
+
+    
+
+    free(currActivationFunction);
+    return NULL;
+}
+
 void vPrintAllLayers (NerualNetwork * NN)
 {
     uint16_t hiddenNeuronCount = 0;

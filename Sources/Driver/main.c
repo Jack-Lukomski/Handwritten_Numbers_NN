@@ -1,5 +1,6 @@
 #include "../Modules/Matrix/matrix.h"
 #include "../Modules/NeuralNetwork/neuralNetwork.h"
+#include "../Modules/ActivationFunctions/activationFunctions.h"
 #include <stdio.h>
 
 double InputLayerArr[2] = {
@@ -41,6 +42,8 @@ int main(void)
 
     NerualNetwork * NN = xConstructNeuralNetwork(INPUT_LAYER, 1, HIDDEN_LAYER, HIDDEN_LAYER_BIASES, OUTPUT_LAYER, OUTPUT_LAYER_BIASES);
 
-    vPrintAllLayers(NN);
+    xComputeOutputSums(NN, Sigmoid);
+
+    // vPrintAllLayers(NN);
 }
 

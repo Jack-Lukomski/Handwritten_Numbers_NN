@@ -30,6 +30,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/CMakeLists.txt"
   "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/CMakeLists.txt"
   "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Driver/CMakeLists.txt"
+  "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/CMakeLists.txt"
   "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/CMakeLists.txt"
   "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/CMakeLists.txt"
   "C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/NeuralNetwork/CMakeLists.txt"
@@ -48,6 +49,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "Sources/Modules/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Sources/Modules/Matrix/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Sources/Modules/NeuralNetwork/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Sources/Modules/ActivationFunctions/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Sources/Driver/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -55,5 +57,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "Sources/Modules/Matrix/CMakeFiles/Matrix.dir/DependInfo.cmake"
   "Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/DependInfo.cmake"
+  "Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/DependInfo.cmake"
   "Sources/Driver/CMakeFiles/driver.dir/DependInfo.cmake"
   )
