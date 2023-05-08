@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../Matrix/matrix.h"
+#include "../ActivationFunctions/activationFunctions.h"
 
 typedef struct {
     uint16_t numInputs;
@@ -33,6 +34,7 @@ static InputLayer * xConstuctInputLayer (Matrix * inputMatrix);
 static HiddenLayer * xConstructHiddenLayer (Matrix * hiddenLayerMatrix, Matrix * biases);
 static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix * biases);
 NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases);
-
+Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction);
+void vPrintAllLayers (NerualNetwork * NN);
 
 #endif

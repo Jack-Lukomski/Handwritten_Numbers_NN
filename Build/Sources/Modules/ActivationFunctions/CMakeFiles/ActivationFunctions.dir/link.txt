@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libActivationFunctions.a CMakeFiles/ActivationFunctions.dir/activationFunctions.c.obj
+C:\MinGW\bin\ranlib.exe libActivationFunctions.a

@@ -17,7 +17,9 @@ Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/neuralNetwork.c.obj: 
   C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/matrix.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h \
+  C:/MinGW/include/math.h
 
 
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/NeuralNetwork/neuralNetwork.c:
@@ -46,6 +48,8 @@ C:/MinGW/include/string.h:
 
 C:/MinGW/include/strings.h:
 
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h:
+
 C:/MinGW/include/wchar.h:
 
 C:/MinGW/include/stdio.h:
@@ -53,3 +57,5 @@ C:/MinGW/include/stdio.h:
 C:/MinGW/include/sys/types.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h:
+
+C:/MinGW/include/math.h:

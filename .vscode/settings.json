@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "neuralnetwork.h": "c"
+        "neuralnetwork.h": "c",
+        "activationfunctions.h": "c"
     }
 }

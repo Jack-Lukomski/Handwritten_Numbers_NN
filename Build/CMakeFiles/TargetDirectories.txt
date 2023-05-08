@@ -10,6 +10,9 @@ C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/Matrix/CMakeF
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/NeuralNetwork/CMakeFiles/edit_cache.dir
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/NeuralNetwork/CMakeFiles/rebuild_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/ActivationFunctions/CMakeFiles/edit_cache.dir
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/ActivationFunctions/CMakeFiles/rebuild_cache.dir
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Driver/CMakeFiles/driver.dir
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Driver/CMakeFiles/edit_cache.dir
 C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Driver/CMakeFiles/rebuild_cache.dir

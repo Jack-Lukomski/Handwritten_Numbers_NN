@@ -11,4 +11,7 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj: \
  c:\mingw\include\stdio.h c:\mingw\include\sys/types.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
  c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\neuralnetwork\neuralnetwork.h \
- c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h \
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\activationfunctions\activationfunctions.h \
+ c:\mingw\include\math.h \
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\activationfunctions\activationfunctions.h

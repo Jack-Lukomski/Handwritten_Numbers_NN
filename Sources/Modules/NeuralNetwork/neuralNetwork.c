@@ -42,3 +42,57 @@ NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHidde
 
     return newNN;
 }
+
+Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction)
+{
+    ActivationFunction * currActivationFunction = xCreateActivationFunction(activationFunction);
+    Matrix * outputSumMatrix = (Matrix *) malloc(sizeof(Matrix));
+    // Still need to add part that applies the activation function to all numbers.
+    for (uint16_t currLayer = 0; currLayer < NN->numHiddenLayers; currLayer++)
+    {
+        if (currLayer == 0)
+        {
+            outputSumMatrix = xMatrixAdd(xDotProduct(NN->inputLayer->inputLayer, NN->hiddenLayers[currLayer]->hiddenLayer), NN->hiddenLayers[currLayer]->biases);
+        }
+        else 
+        {
+            outputSumMatrix = xMatrixAdd(xDotProduct(outputSumMatrix, NN->hiddenLayers[currLayer]->hiddenLayer), NN->hiddenLayers[currLayer]->biases);
+        }
+    }
+
+    outputSumMatrix = xMatrixAdd(xDotProduct(outputSumMatrix, NN->outputLayer->outputLayer), NN->outputLayer->biases);
+
+    free(currActivationFunction);
+
+    return outputSumMatrix;
+}
+
+void vPrintAllLayers (NerualNetwork * NN)
+{
+    uint16_t hiddenNeuronCount = 0;
+    printf("Input Layer Weights:\n\n");
+    vPrintMatrix(NN->inputLayer->inputLayer);
+    printf("------------------------------------------------------\n");
+    printf("\nHidden Layer Weights & Biases:\n\n");
+    for (uint16_t currHL = 0; currHL < NN->numHiddenLayers; currHL++)
+    {
+        printf("Hidden Layer %d Weights:\n", currHL);
+        vPrintMatrix(NN->hiddenLayers[currHL]->hiddenLayer);
+        printf("\nHidden Layer %d Biases:\n", currHL);
+        vPrintMatrix(NN->hiddenLayers[currHL]->biases);
+        printf("\n\n");
+        hiddenNeuronCount += NN->hiddenLayers[currHL]->hiddenLayer->cols;
+    }
+    printf("------------------------------------------------------\n");
+    printf("Output Layer Weights & Biases:\n\nOutput Layer Weights:\n");
+    vPrintMatrix(NN->outputLayer->outputLayer);
+    printf("\nOutput Layer Biases:\n");
+    vPrintMatrix(NN->outputLayer->biases);
+    printf("\nSummary:\n");
+    printf("Number of Inputs: %d\n", NN->inputLayer->inputLayer->cols);
+    printf("Number of Outputs: %d\n", NN->outputLayer->outputLayer->cols);
+    printf("Number of Neurons: %d\n", NN->inputLayer->inputLayer->cols + hiddenNeuronCount + NN->outputLayer->outputLayer->cols);
+    printf("Number of Hidden Neurons: %d\n", hiddenNeuronCount);
+    //printf("Total Number of Connections: %d\n", hiddenNeuronCount*(NN->numHiddenLayers+1));
+
+}

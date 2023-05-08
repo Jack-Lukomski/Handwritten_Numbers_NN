@@ -41,6 +41,26 @@ Matrix * xDotProduct(Matrix * matrix1, Matrix * matrix2)
     return dotMatrix;
 }
 
+Matrix * xMatrixAdd(Matrix * matrix1, Matrix * matrix2)
+{
+    if (matrix1->rows != matrix2->rows || matrix1->cols != matrix2->cols)
+    {
+        printf("Cannot add matricies of different sizes\n");
+        return NULL;
+    }
+
+    Matrix * matrixSum = xCreateEmptyMatrix(matrix1->rows, matrix2->cols);
+
+    for (uint8_t row = 0; row < matrixSum->rows; row++)
+    {
+        for (uint8_t col = 0; col < matrixSum->cols; col++)
+        {
+            matrixSum->matrixData[row * matrixSum->cols + col] = matrix1->matrixData[row * matrix1->cols + col] + matrix2->matrixData[row * matrix2->cols + col];
+        }
+    }
+    return matrixSum;
+}
+
 static Matrix * xCreateEmptyMatrix(uint8_t rows, uint8_t cols)
 {
     Matrix * matrix = (Matrix*) malloc(sizeof(Matrix));
@@ -62,7 +82,7 @@ static double * xGetRow(Matrix * m, uint8_t rowNum)
 
     for (uint8_t col = 0; col < m->cols; col++)
     {
-        rowRetVal[col] = m->matrixData[rowNum * m->cols + col];
+        rowRetVal[col] = m->matrixData[rowNum * m->rows + col];
     }
 
     return rowRetVal;
@@ -80,13 +100,12 @@ static double * xGetCol(Matrix * m, uint8_t colNum)
 
     for (uint8_t row = 0; row < m->rows; row++)
     {
-        colRetVal[row] = m->matrixData[row * m->rows + colNum];
+        colRetVal[row] = m->matrixData[row * m->cols + colNum];
     }
 
     return colRetVal;
 }
 
-// TODO: FIX THIS FUNCTION TO MAKE IT WORK FOR ALL
 void vPrintMatrix(Matrix * m)
 {
     for (uint16_t row = 0; row < m->rows; row++)
