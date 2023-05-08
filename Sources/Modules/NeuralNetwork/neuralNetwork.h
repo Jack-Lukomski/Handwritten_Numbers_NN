@@ -33,6 +33,6 @@ static InputLayer * xConstuctInputLayer (Matrix * inputMatrix);
 static HiddenLayer * xConstructHiddenLayer (Matrix * hiddenLayerMatrix, Matrix * biases);
 static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix * biases);
 NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases);
-
+void vPrintAllLayers (NerualNetwork * NN);
 
 #endif

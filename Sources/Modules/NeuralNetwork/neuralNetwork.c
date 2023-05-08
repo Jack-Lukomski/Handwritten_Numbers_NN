@@ -42,3 +42,33 @@ NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHidde
 
     return newNN;
 }
+
+void vPrintAllLayers (NerualNetwork * NN)
+{
+    uint16_t hiddenNeuronCount = 0;
+    printf("Input Layer Weights:\n\n");
+    vPrintMatrix(NN->inputLayer->inputLayer);
+    printf("------------------------------------------------------\n");
+    printf("\nHidden Layer Weights & Biases:\n\n");
+    for (uint16_t currHL = 0; currHL < NN->numHiddenLayers; currHL++)
+    {
+        printf("Hidden Layer %d Weights:\n", currHL);
+        vPrintMatrix(NN->hiddenLayers[currHL]->hiddenLayer);
+        printf("\nHidden Layer %d Biases:\n", currHL);
+        vPrintMatrix(NN->hiddenLayers[currHL]->biases);
+        printf("\n\n");
+        hiddenNeuronCount += NN->hiddenLayers[currHL]->hiddenLayer->cols;
+    }
+    printf("------------------------------------------------------\n");
+    printf("Output Layer Weights & Biases:\n\nOutput Layer Weights:\n");
+    vPrintMatrix(NN->outputLayer->outputLayer);
+    printf("\nOutput Layer Biases:\n");
+    vPrintMatrix(NN->outputLayer->biases);
+    printf("\nSummary:\n");
+    printf("Number of Inputs: %d\n", NN->inputLayer->inputLayer->cols);
+    printf("Number of Outputs: %d\n", NN->outputLayer->outputLayer->cols);
+    printf("Number of Neurons: %d\n", NN->inputLayer->inputLayer->cols + hiddenNeuronCount + NN->outputLayer->outputLayer->cols);
+    printf("Number of Hidden Neurons: %d\n", hiddenNeuronCount);
+    //printf("Total Number of Connections: %d\n", hiddenNeuronCount*(NN->numHiddenLayers+1));
+
+}
