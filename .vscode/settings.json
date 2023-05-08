@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "neuralnetwork.h": "c",
-        "activationfunctions.h": "c"
+        "activationfunctions.h": "c",
+        "stdio.h": "c",
+        "matrix.h": "c"
     }
 }

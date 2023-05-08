@@ -14,4 +14,6 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj: \
  c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h \
  c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\activationfunctions\activationfunctions.h \
  c:\mingw\include\math.h \
- c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\activationfunctions\activationfunctions.h
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\activationfunctions\activationfunctions.h \
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\layercreation\layercreation.h \
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h

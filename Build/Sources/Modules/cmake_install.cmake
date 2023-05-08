@@ -42,6 +42,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/Matrix/cmake_install.cmake")
   include("C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/NeuralNetwork/cmake_install.cmake")
   include("C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/ActivationFunctions/cmake_install.cmake")
+  include("C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build/Sources/Modules/LayerCreation/cmake_install.cmake")
 
 endif()
 

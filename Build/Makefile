@@ -155,6 +155,19 @@ ActivationFunctions/fast:
 .PHONY : ActivationFunctions/fast
 
 #=============================================================================
+# Target rules for targets named LayerCreation
+
+# Build rule for target.
+LayerCreation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LayerCreation
+.PHONY : LayerCreation
+
+# fast build rule for target.
+LayerCreation/fast:
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\LayerCreation\CMakeFiles\LayerCreation.dir\build.make Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/build
+.PHONY : LayerCreation/fast
+
+#=============================================================================
 # Target rules for targets named driver
 
 # Build rule for target.
@@ -176,6 +189,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ActivationFunctions
+	@echo ... LayerCreation
 	@echo ... Matrix
 	@echo ... NeuralNetwork
 	@echo ... driver

@@ -36,5 +36,6 @@ static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix *
 NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases);
 Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction);
 void vPrintAllLayers (NerualNetwork * NN);
+static void vApplyActivationFunction(Matrix * m, ActivationFunction * function);
 
 #endif

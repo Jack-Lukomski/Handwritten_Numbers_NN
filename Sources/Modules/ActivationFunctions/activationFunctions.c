@@ -18,32 +18,32 @@ ActivationFunction * xCreateActivationFunction (e_FunctionOption functionType)
     return newActivationFunction;
 }
 
-float xSigmoidFunction (float x)
+double xSigmoidFunction (double x)
 {
     return 1/(1 + pow(exp(1.0), -1*x));
 }
 
-float xTanhFunction(float x) 
+double xTanhFunction(double x) 
 {
     return tanh(x);
 }
 
-float xReLUFunction(float x) 
+double xReLUFunction(double x) 
 {
     return x < 0 ? 0.0 : x;
 }
 
-float xLeakeyReLUFunction(float x)
+double xLeakeyReLUFunction(double x)
 {
     return x < 0 ? 0.1 * x : x;
 }
 
-float xELUFunction(float x) 
+double xELUFunction(double x) 
 {
     return x < 0 ? 0.1 * (exp(x) - 1) : x;
 }
 
-float xBinaryStepFunction(float x) 
+double xBinaryStepFunction(double x) 
 {
     return x < 0 ? 0.0 : 1.0;
 }

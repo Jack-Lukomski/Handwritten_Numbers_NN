@@ -21,7 +21,9 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj: C:/Users/jtluk/GitHub/Handwritt
   C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/matrix.h \
   C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h \
   C:/MinGW/include/math.h \
-  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/ActivationFunctions/activationFunctions.h \
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/LayerCreation/layerCreation.h \
+  C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/Matrix/matrix.h
 
 
 C:/MinGW/include/_mingw.h:
@@ -61,3 +63,5 @@ C:/MinGW/include/sys/types.h:
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h:
 
 C:/MinGW/include/math.h:
+
+C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Sources/Modules/LayerCreation/layerCreation.h:

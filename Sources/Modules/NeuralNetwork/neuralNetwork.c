@@ -47,24 +47,35 @@ Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunc
 {
     ActivationFunction * currActivationFunction = xCreateActivationFunction(activationFunction);
     Matrix * outputSumMatrix = (Matrix *) malloc(sizeof(Matrix));
-    // Still need to add part that applies the activation function to all numbers.
+
     for (uint16_t currLayer = 0; currLayer < NN->numHiddenLayers; currLayer++)
     {
         if (currLayer == 0)
         {
             outputSumMatrix = xMatrixAdd(xDotProduct(NN->inputLayer->inputLayer, NN->hiddenLayers[currLayer]->hiddenLayer), NN->hiddenLayers[currLayer]->biases);
+            vApplyActivationFunction(outputSumMatrix, currActivationFunction);
         }
         else 
         {
             outputSumMatrix = xMatrixAdd(xDotProduct(outputSumMatrix, NN->hiddenLayers[currLayer]->hiddenLayer), NN->hiddenLayers[currLayer]->biases);
+            vApplyActivationFunction(outputSumMatrix, currActivationFunction);
         }
     }
 
     outputSumMatrix = xMatrixAdd(xDotProduct(outputSumMatrix, NN->outputLayer->outputLayer), NN->outputLayer->biases);
+    vApplyActivationFunction(outputSumMatrix, currActivationFunction);
 
     free(currActivationFunction);
 
     return outputSumMatrix;
+}
+
+static void vApplyActivationFunction(Matrix * m, ActivationFunction * function)
+{
+    for (uint16_t currMatrixVal = 0; currMatrixVal < m->cols*m->rows; currMatrixVal++)
+    {
+        m->matrixData[currMatrixVal] = function->function(m->matrixData[currMatrixVal]);
+    }
 }
 
 void vPrintAllLayers (NerualNetwork * NN)
@@ -93,6 +104,4 @@ void vPrintAllLayers (NerualNetwork * NN)
     printf("Number of Outputs: %d\n", NN->outputLayer->outputLayer->cols);
     printf("Number of Neurons: %d\n", NN->inputLayer->inputLayer->cols + hiddenNeuronCount + NN->outputLayer->outputLayer->cols);
     printf("Number of Hidden Neurons: %d\n", hiddenNeuronCount);
-    //printf("Total Number of Connections: %d\n", hiddenNeuronCount*(NN->numHiddenLayers+1));
-
 }

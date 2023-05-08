@@ -113,18 +113,21 @@ Sources/Driver/clean: Sources/Driver/CMakeFiles/driver.dir/clean
 Sources/Modules/all: Sources/Modules/Matrix/all
 Sources/Modules/all: Sources/Modules/NeuralNetwork/all
 Sources/Modules/all: Sources/Modules/ActivationFunctions/all
+Sources/Modules/all: Sources/Modules/LayerCreation/all
 .PHONY : Sources/Modules/all
 
 # Recursive "preinstall" directory target.
 Sources/Modules/preinstall: Sources/Modules/Matrix/preinstall
 Sources/Modules/preinstall: Sources/Modules/NeuralNetwork/preinstall
 Sources/Modules/preinstall: Sources/Modules/ActivationFunctions/preinstall
+Sources/Modules/preinstall: Sources/Modules/LayerCreation/preinstall
 .PHONY : Sources/Modules/preinstall
 
 # Recursive "clean" directory target.
 Sources/Modules/clean: Sources/Modules/Matrix/clean
 Sources/Modules/clean: Sources/Modules/NeuralNetwork/clean
 Sources/Modules/clean: Sources/Modules/ActivationFunctions/clean
+Sources/Modules/clean: Sources/Modules/LayerCreation/clean
 .PHONY : Sources/Modules/clean
 
 #=============================================================================
@@ -141,6 +144,21 @@ Sources/Modules/ActivationFunctions/preinstall:
 # Recursive "clean" directory target.
 Sources/Modules/ActivationFunctions/clean: Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/clean
 .PHONY : Sources/Modules/ActivationFunctions/clean
+
+#=============================================================================
+# Directory level rules for directory Sources/Modules/LayerCreation
+
+# Recursive "all" directory target.
+Sources/Modules/LayerCreation/all: Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/all
+.PHONY : Sources/Modules/LayerCreation/all
+
+# Recursive "preinstall" directory target.
+Sources/Modules/LayerCreation/preinstall:
+.PHONY : Sources/Modules/LayerCreation/preinstall
+
+# Recursive "clean" directory target.
+Sources/Modules/LayerCreation/clean: Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/clean
+.PHONY : Sources/Modules/LayerCreation/clean
 
 #=============================================================================
 # Directory level rules for directory Sources/Modules/Matrix
@@ -179,7 +197,7 @@ Sources/Modules/NeuralNetwork/clean: Sources/Modules/NeuralNetwork/CMakeFiles/Ne
 Sources/Modules/Matrix/CMakeFiles/Matrix.dir/all:
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\Matrix\CMakeFiles\Matrix.dir\build.make Sources/Modules/Matrix/CMakeFiles/Matrix.dir/depend
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\Matrix\CMakeFiles\Matrix.dir\build.make Sources/Modules/Matrix/CMakeFiles/Matrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=3,4 "Built target Matrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=5,6 "Built target Matrix"
 .PHONY : Sources/Modules/Matrix/CMakeFiles/Matrix.dir/all
 
 # Build rule for subdir invocation for target.
@@ -205,7 +223,7 @@ Sources/Modules/Matrix/CMakeFiles/Matrix.dir/clean:
 Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all:
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/depend
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=5,6 "Built target NeuralNetwork"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=7,8 "Built target NeuralNetwork"
 .PHONY : Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
 
 # Build rule for subdir invocation for target.
@@ -251,20 +269,47 @@ Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/clean:
 .PHONY : Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/clean
 
 #=============================================================================
+# Target rules for target Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir
+
+# All Build rule for target.
+Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/all:
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\LayerCreation\CMakeFiles\LayerCreation.dir\build.make Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/depend
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\LayerCreation\CMakeFiles\LayerCreation.dir\build.make Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=3,4 "Built target LayerCreation"
+.PHONY : Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/all
+
+# Build rule for subdir invocation for target.
+Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 0
+.PHONY : Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/rule
+
+# Convenience name for target.
+LayerCreation: Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/rule
+.PHONY : LayerCreation
+
+# clean rule for target.
+Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Sources\Modules\LayerCreation\CMakeFiles\LayerCreation.dir\build.make Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/clean
+.PHONY : Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/clean
+
+#=============================================================================
 # Target rules for target Sources/Driver/CMakeFiles/driver.dir
 
 # All Build rule for target.
 Sources/Driver/CMakeFiles/driver.dir/all: Sources/Modules/Matrix/CMakeFiles/Matrix.dir/all
 Sources/Driver/CMakeFiles/driver.dir/all: Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
 Sources/Driver/CMakeFiles/driver.dir/all: Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/all
+Sources/Driver/CMakeFiles/driver.dir/all: Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/all
 	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/depend
 	$(MAKE) $(MAKESILENT) -f Sources\Driver\CMakeFiles\driver.dir\build.make Sources/Driver/CMakeFiles/driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=7,8 "Built target driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=9,10 "Built target driver"
 .PHONY : Sources/Driver/CMakeFiles/driver.dir/all
 
 # Build rule for subdir invocation for target.
 Sources/Driver/CMakeFiles/driver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Driver/CMakeFiles/driver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 0
 .PHONY : Sources/Driver/CMakeFiles/driver.dir/rule

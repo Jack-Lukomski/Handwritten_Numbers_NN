@@ -7,14 +7,14 @@
 
 #define NUM_ACTIVATION_FUNCTIONS 6
 
-typedef float (*xActivationFunctionPtr)(float x);
+typedef double (*xActivationFunctionPtr)(double x);
 
-float xSigmoidFunction (float x);
-float xTanhFunction (float x);
-float xReLUFunction (float x);
-float xLeakeyReLUFunction (float x);
-float xELUFunction (float x);
-float xBinaryStepFunction (float x);
+double xSigmoidFunction (double x);
+double xTanhFunction (double x);
+double xReLUFunction (double x);
+double xLeakeyReLUFunction (double x);
+double xELUFunction (double x);
+double xBinaryStepFunction (double x);
 
 typedef enum {
     Sigmoid,
