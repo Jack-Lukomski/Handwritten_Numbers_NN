@@ -16,4 +16,5 @@ Sources/Driver/CMakeFiles/driver.dir/main.c.obj: \
  c:\mingw\include\math.h \
  c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\activationfunctions\activationfunctions.h \
  c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\layercreation\layercreation.h \
- c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h
+ c:\users\jtluk\github\handwritten_numbers_nn\sources\modules\matrix\matrix.h \
+ c:\mingw\lib\gcc\mingw32\6.3.0\include\stdbool.h

@@ -17,7 +17,8 @@ Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/layerCreation.c.obj: 
   C:/MinGW/include/wchar.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h
 
 
 C:/MinGW/include/stdint.h:
@@ -53,3 +54,5 @@ C:/MinGW/include/stdio.h:
 C:/MinGW/include/sys/types.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h:
+
+C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h:
