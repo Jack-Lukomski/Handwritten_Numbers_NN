@@ -32,7 +32,7 @@ typedef struct {
 void vCreateNNLayerMatricies (void);
 static LayerCSVFiles * xConstructLayerCSVFiles (void);
 static fileStructure xGetFileStructure (FILE * f);
-static void vAssignMatrixVariables (LayerCSVFiles * files);
+static double * xGetFileData (FILE * f, fileStructure currFileStructure);
 
 
 #endif

@@ -2,10 +2,13 @@
 
 void vCreateNNLayerMatricies (void)
 {
-    LayerCSVFiles * test = xConstructLayerCSVFiles();
-    fileStructure t = xGetFileStructure(test->InputWeights);
-    printf("rows = %d\n", t.rows);
-    printf("cols = %d\n", t.cols);
+    LayerCSVFiles * allFiles = xConstructLayerCSVFiles();
+
+    fileStructure InputWeightsMatrixSize = xGetFileStructure(allFiles->InputWeights);
+    double * InputWeightsMatrixData = xGetFileData(allFiles->InputWeights, InputWeightsMatrixSize);
+    //INPUT_LAYER_WEIGHTS = (Matrix *) malloc(sizeof(Matrix));
+    INPUT_LAYER_WEIGHTS = xCreateMatrix(InputWeightsMatrixSize.rows, InputWeightsMatrixSize.cols, InputWeightsMatrixData);
+    //vPrintMatrix(INPUT_LAYER_WEIGHTS);
 }
 
 static LayerCSVFiles * xConstructLayerCSVFiles (void)
@@ -28,9 +31,20 @@ static LayerCSVFiles * xConstructLayerCSVFiles (void)
     return newCSVObj;
 }
 
-static void vAssignMatrixVariables (LayerCSVFiles * files)
+static double * xGetFileData (FILE * f, fileStructure currFileStructure)
 {
-    
+    uint16_t currBuf = 0;
+    double currBufVal;
+    uint16_t matrixSize = currFileStructure.cols*currFileStructure.rows;
+    double * currFileData = (double *) malloc(matrixSize * sizeof(double));
+
+    while (fscanf(f, "%lf,", &currBufVal) == 1 && currBuf < matrixSize)
+    {
+        currFileData[currBuf] = currBufVal;
+        currBuf++;
+    }
+
+    return currFileData;
 }
 
 static fileStructure xGetFileStructure(FILE *f) 
