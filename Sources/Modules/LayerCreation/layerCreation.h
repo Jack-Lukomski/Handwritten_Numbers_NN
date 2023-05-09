@@ -9,8 +9,8 @@
 
 extern Matrix * INPUT_LAYER_WEIGHTS;
 
-extern Matrix * HIDDEN_LAYER_WEIGHTS[];
-extern Matrix * HIDDEN_LAYER_BIASES[];
+extern Matrix * HIDDEN_LAYER_WEIGHTS[NUM_HIDDEN_LAYERS];
+extern Matrix * HIDDEN_LAYER_BIASES[NUM_HIDDEN_LAYERS];
 
 extern Matrix * OUTPUT_LAYER_WEIGHTS;
 extern Matrix * OUTPUT_LAYER_BIASES;
@@ -18,7 +18,7 @@ extern Matrix * OUTPUT_LAYER_BIASES;
 typedef struct {
     FILE * InputWeights;
     FILE ** HiddenLayerWeights;
-    FILE * HiddenBiases;
+    FILE ** HiddenBiases;
     FILE * OutputWeights;
     FILE * OutputBiases;
 } LayerCSVFiles;
