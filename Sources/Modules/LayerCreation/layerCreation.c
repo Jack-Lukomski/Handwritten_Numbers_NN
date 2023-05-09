@@ -6,9 +6,9 @@ void vCreateNNLayerMatricies (void)
 
     fileStructure InputWeightsMatrixSize = xGetFileStructure(allFiles->InputWeights);
     double * InputWeightsMatrixData = xGetFileData(allFiles->InputWeights, InputWeightsMatrixSize);
-    Matrix * INPUT_LAYER_WEIGHTS = xCreateMatrix(InputWeightsMatrixSize.rows, InputWeightsMatrixSize.cols, InputWeightsMatrixData);
+    INPUT_LAYER_WEIGHTS = xCreateMatrix(InputWeightsMatrixSize.rows, InputWeightsMatrixSize.cols, InputWeightsMatrixData);
     
-    Matrix * HIDDEN_LAYER_WEIGHTS[NUM_HIDDEN_LAYERS];
+    HIDDEN_LAYER_WEIGHTS[NUM_HIDDEN_LAYERS];
     for (uint16_t currHL = 0; currHL < NUM_HIDDEN_LAYERS; currHL++)
     {
         fileStructure currHiddenWeightsMatrixSize = xGetFileStructure(allFiles->HiddenLayerWeights[currHL]);
@@ -16,7 +16,7 @@ void vCreateNNLayerMatricies (void)
         HIDDEN_LAYER_WEIGHTS[currHL] = xCreateMatrix(currHiddenWeightsMatrixSize.rows, currHiddenWeightsMatrixSize.cols, currHiddenWeightsMatrixData);
     }
     
-    Matrix * HIDDEN_LAYER_BIASES[NUM_HIDDEN_LAYERS];
+    HIDDEN_LAYER_BIASES[NUM_HIDDEN_LAYERS];
     for (uint16_t currHL = 0; currHL < NUM_HIDDEN_LAYERS; currHL++)
     {
         fileStructure currHiddenBiasMatrixSize = xGetFileStructure(allFiles->HiddenBiases[currHL]);
@@ -26,11 +26,11 @@ void vCreateNNLayerMatricies (void)
 
     fileStructure OutputWeightsMatrixSize = xGetFileStructure(allFiles->OutputWeights);
     double * OutputWeightsMatrixData = xGetFileData(allFiles->OutputWeights, OutputWeightsMatrixSize);
-    Matrix * OUTPUT_LAYER_WEIGHTS = xCreateMatrix(OutputWeightsMatrixSize.rows, OutputWeightsMatrixSize.cols, OutputWeightsMatrixData);
+    OUTPUT_LAYER_WEIGHTS = xCreateMatrix(OutputWeightsMatrixSize.rows, OutputWeightsMatrixSize.cols, OutputWeightsMatrixData);
 
     fileStructure OutputBiasesMatrixSize = xGetFileStructure(allFiles->OutputBiases);
     double * OutputBiasesMatrixData = xGetFileData(allFiles->OutputBiases, OutputBiasesMatrixSize);
-    Matrix * OUTPUT_LAYER_BIASES = xCreateMatrix(OutputBiasesMatrixSize.rows, OutputBiasesMatrixSize.cols, OutputBiasesMatrixData);
+    OUTPUT_LAYER_BIASES = xCreateMatrix(OutputBiasesMatrixSize.rows, OutputBiasesMatrixSize.cols, OutputBiasesMatrixData);
 }
 
 static LayerCSVFiles * xConstructLayerCSVFiles (void)
