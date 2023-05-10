@@ -91,7 +91,6 @@ driver_EXTERNAL_OBJECTS =
 
 Sources/Driver/driver.exe: Sources/Driver/CMakeFiles/driver.dir/main.c.obj
 Sources/Driver/driver.exe: Sources/Driver/CMakeFiles/driver.dir/build.make
-Sources/Driver/driver.exe: Sources/Modules/Matrix/libMatrix.a
 Sources/Driver/driver.exe: Sources/Modules/NeuralNetwork/libNeuralNetwork.a
 Sources/Driver/driver.exe: Sources/Modules/ActivationFunctions/libActivationFunctions.a
 Sources/Driver/driver.exe: Sources/Modules/LayerCreation/libLayerCreation.a

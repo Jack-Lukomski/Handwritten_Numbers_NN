@@ -207,6 +207,12 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Dependencies for the target
 LayerCreation_LIB_DEPENDS:STATIC=general;Matrix;
 
+//Dependencies for the target
+NeuralNetworkLibary_LIB_DEPENDS:STATIC=general;Matrix;general;NeuralNetwork;general;ActivationFunctions;general;LayerCreation;
+
+//Dependencies for the target
+NeuralNetwork_LIB_DEPENDS:STATIC=general;Matrix;general;ActivationFunctions;general;LayerCreation;
+
 //Value Computed by CMake
 handwritten_numbers_nn_BINARY_DIR:STATIC=C:/Users/jtluk/GitHub/Handwritten_Numbers_NN/Build
 

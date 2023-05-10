@@ -220,7 +220,9 @@ Sources/Modules/Matrix/CMakeFiles/Matrix.dir/clean:
 # Target rules for target Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir
 
 # All Build rule for target.
-Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all:
+Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all: Sources/Modules/Matrix/CMakeFiles/Matrix.dir/all
+Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all: Sources/Modules/ActivationFunctions/CMakeFiles/ActivationFunctions.dir/all
+Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all: Sources/Modules/LayerCreation/CMakeFiles/LayerCreation.dir/all
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/depend
 	$(MAKE) $(MAKESILENT) -f Sources\Modules\NeuralNetwork\CMakeFiles\NeuralNetwork.dir\build.make Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles --progress-num=7,8 "Built target NeuralNetwork"
@@ -228,7 +230,7 @@ Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all:
 
 # Build rule for subdir invocation for target.
 Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\jtluk\GitHub\Handwritten_Numbers_NN\Build\CMakeFiles 0
 .PHONY : Sources/Modules/NeuralNetwork/CMakeFiles/NeuralNetwork.dir/rule
