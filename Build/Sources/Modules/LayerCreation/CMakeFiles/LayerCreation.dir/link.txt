@@ -1,2 +1,0 @@
-C:\MinGW\bin\ar.exe qc libLayerCreation.a CMakeFiles/LayerCreation.dir/layerCreation.c.obj
-C:\MinGW\bin\ranlib.exe libLayerCreation.a

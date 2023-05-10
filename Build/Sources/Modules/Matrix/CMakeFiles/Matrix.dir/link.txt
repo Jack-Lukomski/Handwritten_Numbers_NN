@@ -1,2 +1,0 @@
-C:\MinGW\bin\ar.exe qc libMatrix.a CMakeFiles/Matrix.dir/matrix.c.obj
-C:\MinGW\bin\ranlib.exe libMatrix.a
