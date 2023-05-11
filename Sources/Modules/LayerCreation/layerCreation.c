@@ -36,27 +36,27 @@ void vCreateNNLayerMatricies (void)
 static LayerCSVFiles * xConstructLayerCSVFiles (void)
 {
     LayerCSVFiles * newCSVObj = (LayerCSVFiles *) malloc(sizeof(LayerCSVFiles));
-    newCSVObj->InputWeights = fopen("../../../Sources/Modules/LayerCreation/InputLayer/InputWeights.csv", "r");
+    newCSVObj->InputWeights = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/InputLayer/InputWeights.csv", "r");
     newCSVObj->HiddenLayerWeights = (FILE **) malloc(NUM_HIDDEN_LAYERS * sizeof(FILE *));
     newCSVObj->HiddenBiases = (FILE **) malloc(NUM_HIDDEN_LAYERS * sizeof(FILE *));
     char filename[100];
 
     for (uint16_t currHLFile = 0; currHLFile < NUM_HIDDEN_LAYERS; currHLFile++)
     {
-        sprintf(filename, "../../../Sources/Modules/LayerCreation/HiddenLayers/HiddenWeights%d.csv", currHLFile);
+        sprintf(filename, "../../../Libaries/NeuralC/Sources/Modules/LayerCreation/HiddenLayers/HiddenWeights%d.csv", currHLFile);
         newCSVObj->HiddenLayerWeights[currHLFile] = fopen(filename, "r");
     }
 
     for (uint16_t currHLFile = 0; currHLFile < NUM_HIDDEN_LAYERS; currHLFile++)
     {
-        sprintf(filename, "../../../Sources/Modules/LayerCreation/HiddenLayers/HiddenBiases%d.csv", currHLFile);
+        sprintf(filename, "../../../Libaries/NeuralC/Sources/Modules/LayerCreation/HiddenLayers/HiddenBiases%d.csv", currHLFile);
         newCSVObj->HiddenBiases[currHLFile] = fopen(filename, "r");
     }
 
     //newCSVObj->HiddenBiases = fopen("../../../Sources/Modules/LayerCreation/HiddenLayers/HiddenBiases.csv", "r");
 
-    newCSVObj->OutputWeights = fopen("../../../Sources/Modules/LayerCreation/OutputLayer/OutputWeights.csv", "r");
-    newCSVObj->OutputBiases = fopen("../../../Sources/Modules/LayerCreation/OutputLayer/OutputBiases.csv", "r");
+    newCSVObj->OutputWeights = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/OutputLayer/OutputWeights.csv", "r");
+    newCSVObj->OutputBiases = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/OutputLayer/OutputBiases.csv", "r");
 
     return newCSVObj;
 }
