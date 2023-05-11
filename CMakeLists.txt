@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(CMAKE_C_COMPILER "C:/mingw/bin/gcc.exe")
+set(CMAKE_C_COMPILER "/usr/bin/gcc")
 
 project(handwritten_numbers_nn LANGUAGES C)
 
