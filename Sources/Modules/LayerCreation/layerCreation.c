@@ -105,3 +105,26 @@ static fileStructure xGetFileStructure(FILE *f)
 
     return fsRetVal;
 }
+
+void vUpdateInputLayerWeights (Matrix * inputLayerWeights)
+{
+    FILE * ilWeights_ptr = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/InputLayer/InputWeights.csv", "w");
+
+    for (uint16_t currWeight = 0; currWeight < inputLayerWeights->cols*inputLayerWeights->rows; currWeight++)
+    {
+        if (currWeight == inputLayerWeights->cols*inputLayerWeights->rows-1)
+        {
+            fprintf(ilWeights_ptr, "%f", inputLayerWeights->matrixData[currWeight]);
+        }
+        else 
+        {
+            fprintf(ilWeights_ptr, "%f,", inputLayerWeights->matrixData[currWeight]);
+        }
+    }
+    vCreateNNLayerMatricies();
+    //fclose(allFiles->InputWeights);
+}
+// void vUpdateOutputLayerWeights (Matrix * outputLayerWeights);
+// void vUpdateOutputLayerBiases (Matrix * outputLayerBiases);
+// void vUpdateHiddenLayerWeights (Matrix * hiddenLayerWeights, uint16_t hiddenLayerNum);
+// void vUpdateHiddenLayerBiases (Matrix * hiddenLayerBiases, uint16_t hiddenLayerNum);

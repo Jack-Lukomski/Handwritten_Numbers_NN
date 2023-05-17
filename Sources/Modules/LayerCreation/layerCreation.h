@@ -30,9 +30,15 @@ typedef struct {
 
 
 void vCreateNNLayerMatricies (void);
+static void vCreateInputLayerWeights(FILE * fp);
+
 static LayerCSVFiles * xConstructLayerCSVFiles (void);
 static fileStructure xGetFileStructure (FILE * f);
 static double * xGetFileData (FILE * f, fileStructure currFileStructure);
-
+void vUpdateInputLayerWeights (Matrix * inputLayerWeights);
+void vUpdateOutputLayerWeights (Matrix * outputLayerWeights);
+void vUpdateOutputLayerBiases (Matrix * outputLayerBiases);
+void vUpdateHiddenLayerWeights (Matrix * hiddenLayerWeights, uint16_t hiddenLayerNum);
+void vUpdateHiddenLayerBiases (Matrix * hiddenLayerBiases, uint16_t hiddenLayerNum);
 
 #endif
