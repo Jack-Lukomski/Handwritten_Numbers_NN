@@ -106,7 +106,7 @@ static fileStructure xGetFileStructure(FILE *f)
     return fsRetVal;
 }
 
-void vUpdateInputLayerWeights (Matrix * inputLayerWeights)
+void vUpdateInputLayerWeights (Matrix * inputLayerWeights, NerualNetwork * NN)
 {
     FILE * ilWeights_ptr = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/InputLayer/InputWeights.csv", "w");
 
@@ -121,10 +121,102 @@ void vUpdateInputLayerWeights (Matrix * inputLayerWeights)
             fprintf(ilWeights_ptr, "%f,", inputLayerWeights->matrixData[currWeight]);
         }
     }
-    vCreateNNLayerMatricies();
-    //fclose(allFiles->InputWeights);
+    INPUT_LAYER_WEIGHTS = xCreateMatrix(inputLayerWeights->rows, inputLayerWeights->cols, inputLayerWeights->matrixData);
+    vReconstructInputLayer(NN, inputLayerWeights);
+    fclose(ilWeights_ptr);
 }
-// void vUpdateOutputLayerWeights (Matrix * outputLayerWeights);
-// void vUpdateOutputLayerBiases (Matrix * outputLayerBiases);
-// void vUpdateHiddenLayerWeights (Matrix * hiddenLayerWeights, uint16_t hiddenLayerNum);
-// void vUpdateHiddenLayerBiases (Matrix * hiddenLayerBiases, uint16_t hiddenLayerNum);
+
+void vUpdateOutputLayerWeights (Matrix * outputLayerWeights, NerualNetwork * NN)
+{
+    FILE * olWeights_ptr = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/OutputLayer/OutputWeights.csv", "w");
+
+    for (uint16_t currRow = 0; currRow < outputLayerWeights->rows; currRow++)
+    {
+        for (uint16_t currCol = 0; currCol < outputLayerWeights->cols; currCol++)
+        {
+            fprintf(olWeights_ptr, "%f", outputLayerWeights->matrixData[currRow * outputLayerWeights->cols + currCol]);
+            if (currCol != outputLayerWeights->cols - 1) 
+            {
+                fprintf(olWeights_ptr, ",");
+            }
+        }
+        if (currRow < outputLayerWeights->rows-1)
+        {
+            fprintf(olWeights_ptr, "\n");
+        }
+    }
+    vReconstructOutputWeights(NN, outputLayerWeights);
+}
+void vUpdateOutputLayerBiases (Matrix * outputLayerBiases, NerualNetwork * NN)
+{
+    FILE * olBiases_ptr = fopen("../../../Libaries/NeuralC/Sources/Modules/LayerCreation/OutputLayer/OutputBiases.csv", "w");
+
+    for (uint16_t currRow = 0; currRow < outputLayerBiases->rows; currRow++)
+    {
+        for (uint16_t currCol = 0; currCol < outputLayerBiases->cols; currCol++)
+        {
+            fprintf(olBiases_ptr, "%f", outputLayerBiases->matrixData[currRow * outputLayerBiases->cols + currCol]);
+            if (currCol != outputLayerBiases->cols - 1) 
+            {
+                fprintf(olBiases_ptr, ",");
+            }
+        }
+        if (currRow < outputLayerBiases->rows-1)
+        {
+            fprintf(olBiases_ptr, "\n");
+        }
+    }
+    vReconstructOutputBiases(NN, outputLayerBiases);
+}
+
+void vUpdateHiddenLayerWeights (Matrix * hiddenLayerWeights, NerualNetwork * NN, uint16_t hiddenLayerNum)
+{
+    char filename[100];
+    sprintf(filename, "../../../Libaries/NeuralC/Sources/Modules/LayerCreation/HiddenLayers/HiddenWeights%d.csv", hiddenLayerNum);
+
+    FILE * hlWeights_ptr = fopen(filename, "w");
+
+    for (uint16_t currRow = 0; currRow < hiddenLayerWeights->rows; currRow++)
+    {
+        for (uint16_t currCol = 0; currCol < hiddenLayerWeights->cols; currCol++)
+        {
+            fprintf(hlWeights_ptr, "%f", hiddenLayerWeights->matrixData[currRow * hiddenLayerWeights->cols + currCol]);
+            if (currCol != hiddenLayerWeights->cols - 1) 
+            {
+                fprintf(hlWeights_ptr, ",");
+            }
+        }
+        if (currRow < hiddenLayerWeights->rows-1)
+        {
+            fprintf(hlWeights_ptr, "\n");
+        }
+    }
+
+    vReconstructHiddenWeights(NN, hiddenLayerWeights, hiddenLayerNum);
+}
+
+void vUpdateHiddenLayerBiases (Matrix * hiddenLayerBiases, NerualNetwork * NN, uint16_t hiddenLayerNum)
+{
+    char filename[100];
+    sprintf(filename, "../../../Libaries/NeuralC/Sources/Modules/LayerCreation/HiddenLayers/HiddenBiases%d.csv", hiddenLayerNum);
+
+    FILE * hlBiases_ptr = fopen(filename, "w");
+
+    for (uint16_t currRow = 0; currRow < hiddenLayerBiases->rows; currRow++)
+    {
+        for (uint16_t currCol = 0; currCol < hiddenLayerBiases->cols; currCol++)
+        {
+            fprintf(hlBiases_ptr, "%f", hiddenLayerBiases->matrixData[currRow * hiddenLayerBiases->cols + currCol]);
+            if (currCol != hiddenLayerBiases->cols - 1) 
+            {
+                fprintf(hlBiases_ptr, ",");
+            }
+        }
+        if (currRow < hiddenLayerBiases->rows-1)
+        {
+            fprintf(hlBiases_ptr, "\n");
+        }
+    }
+
+    vReconstructHiddenBiases(NN, hiddenLayerBiases, hiddenLayerNum);
+}

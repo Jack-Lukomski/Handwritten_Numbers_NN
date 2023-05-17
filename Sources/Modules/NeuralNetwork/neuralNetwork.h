@@ -38,4 +38,10 @@ Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunc
 void vPrintAllLayers (NerualNetwork * NN);
 static void vApplyActivationFunction(Matrix * m, ActivationFunction * function);
 
+void vReconstructInputLayer(NerualNetwork * NN, Matrix * newData);
+void vReconstructOutputWeights(NerualNetwork * NN, Matrix * newData);
+void vReconstructOutputBiases(NerualNetwork * NN, Matrix * newData);
+void vReconstructHiddenWeights(NerualNetwork * NN, Matrix * newData, uint16_t currHiddenLayer);
+void vReconstructHiddenBiases(NerualNetwork * NN, Matrix * newData, uint16_t currHiddenLayer);
+
 #endif

@@ -78,6 +78,41 @@ static void vApplyActivationFunction(Matrix * m, ActivationFunction * function)
     }
 }
 
+void vReconstructInputLayer(NerualNetwork * NN, Matrix * newData)
+{
+    free(NN->inputLayer);
+    NN->inputLayer = (InputLayer *) malloc(sizeof(InputLayer));
+    NN->inputLayer->inputLayer = newData;
+}
+
+void vReconstructOutputWeights(NerualNetwork * NN, Matrix * newData)
+{
+    free(NN->outputLayer->outputLayer);
+    NN->outputLayer->outputLayer = (Matrix *) malloc(sizeof(Matrix));
+    NN->outputLayer->outputLayer = newData;
+}
+
+void vReconstructOutputBiases(NerualNetwork * NN, Matrix * newData)
+{
+    free(NN->outputLayer->biases);
+    NN->outputLayer->biases = (Matrix *) malloc(sizeof(Matrix));
+    NN->outputLayer->biases = newData;
+}
+
+void vReconstructHiddenWeights(NerualNetwork * NN, Matrix * newData, uint16_t currHiddenLayer)
+{
+    free(NN->hiddenLayers[currHiddenLayer]->hiddenLayer);
+    NN->hiddenLayers[currHiddenLayer]->hiddenLayer = (Matrix *) malloc(sizeof(Matrix));
+    NN->hiddenLayers[currHiddenLayer]->hiddenLayer = newData;
+}
+
+void vReconstructHiddenBiases(NerualNetwork * NN, Matrix * newData, uint16_t currHiddenLayer)
+{
+    free(NN->hiddenLayers[currHiddenLayer]->biases);
+    NN->hiddenLayers[currHiddenLayer]->biases = (Matrix *) malloc(sizeof(Matrix));
+    NN->hiddenLayers[currHiddenLayer]->biases = newData;
+}
+
 void vPrintAllLayers (NerualNetwork * NN)
 {
     uint16_t hiddenNeuronCount = 0;
