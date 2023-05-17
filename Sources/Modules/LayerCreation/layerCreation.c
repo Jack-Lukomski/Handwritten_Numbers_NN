@@ -118,7 +118,7 @@ void vUpdateInputLayerWeights (Matrix * inputLayerWeights, NerualNetwork * NN)
         }
         else 
         {
-            fprintf(ilWeights_ptr, "%f,", inputLayerWeights->matrixData[currWeight]);
+            fprintf(ilWeights_ptr, "%f, ", inputLayerWeights->matrixData[currWeight]);
         }
     }
     INPUT_LAYER_WEIGHTS = xCreateMatrix(inputLayerWeights->rows, inputLayerWeights->cols, inputLayerWeights->matrixData);
@@ -137,7 +137,7 @@ void vUpdateOutputLayerWeights (Matrix * outputLayerWeights, NerualNetwork * NN)
             fprintf(olWeights_ptr, "%f", outputLayerWeights->matrixData[currRow * outputLayerWeights->cols + currCol]);
             if (currCol != outputLayerWeights->cols - 1) 
             {
-                fprintf(olWeights_ptr, ",");
+                fprintf(olWeights_ptr, ", ");
             }
         }
         if (currRow < outputLayerWeights->rows-1)
@@ -145,6 +145,7 @@ void vUpdateOutputLayerWeights (Matrix * outputLayerWeights, NerualNetwork * NN)
             fprintf(olWeights_ptr, "\n");
         }
     }
+    OUTPUT_LAYER_WEIGHTS = xCreateMatrix(outputLayerWeights->rows, outputLayerWeights->cols, outputLayerWeights->matrixData);
     vReconstructOutputWeights(NN, outputLayerWeights);
 }
 void vUpdateOutputLayerBiases (Matrix * outputLayerBiases, NerualNetwork * NN)
@@ -158,7 +159,7 @@ void vUpdateOutputLayerBiases (Matrix * outputLayerBiases, NerualNetwork * NN)
             fprintf(olBiases_ptr, "%f", outputLayerBiases->matrixData[currRow * outputLayerBiases->cols + currCol]);
             if (currCol != outputLayerBiases->cols - 1) 
             {
-                fprintf(olBiases_ptr, ",");
+                fprintf(olBiases_ptr, ", ");
             }
         }
         if (currRow < outputLayerBiases->rows-1)
@@ -166,6 +167,7 @@ void vUpdateOutputLayerBiases (Matrix * outputLayerBiases, NerualNetwork * NN)
             fprintf(olBiases_ptr, "\n");
         }
     }
+    OUTPUT_LAYER_BIASES = xCreateMatrix(outputLayerBiases->rows, outputLayerBiases->cols, outputLayerBiases->matrixData);
     vReconstructOutputBiases(NN, outputLayerBiases);
 }
 
@@ -183,7 +185,7 @@ void vUpdateHiddenLayerWeights (Matrix * hiddenLayerWeights, NerualNetwork * NN,
             fprintf(hlWeights_ptr, "%f", hiddenLayerWeights->matrixData[currRow * hiddenLayerWeights->cols + currCol]);
             if (currCol != hiddenLayerWeights->cols - 1) 
             {
-                fprintf(hlWeights_ptr, ",");
+                fprintf(hlWeights_ptr, ", ");
             }
         }
         if (currRow < hiddenLayerWeights->rows-1)
@@ -191,7 +193,7 @@ void vUpdateHiddenLayerWeights (Matrix * hiddenLayerWeights, NerualNetwork * NN,
             fprintf(hlWeights_ptr, "\n");
         }
     }
-
+    HIDDEN_LAYER_WEIGHTS[hiddenLayerNum] = xCreateMatrix(hiddenLayerWeights->rows, hiddenLayerWeights->cols, hiddenLayerWeights->matrixData);   
     vReconstructHiddenWeights(NN, hiddenLayerWeights, hiddenLayerNum);
 }
 
@@ -209,7 +211,7 @@ void vUpdateHiddenLayerBiases (Matrix * hiddenLayerBiases, NerualNetwork * NN, u
             fprintf(hlBiases_ptr, "%f", hiddenLayerBiases->matrixData[currRow * hiddenLayerBiases->cols + currCol]);
             if (currCol != hiddenLayerBiases->cols - 1) 
             {
-                fprintf(hlBiases_ptr, ",");
+                fprintf(hlBiases_ptr, ", ");
             }
         }
         if (currRow < hiddenLayerBiases->rows-1)
@@ -217,6 +219,6 @@ void vUpdateHiddenLayerBiases (Matrix * hiddenLayerBiases, NerualNetwork * NN, u
             fprintf(hlBiases_ptr, "\n");
         }
     }
-
+    HIDDEN_LAYER_BIASES[hiddenLayerNum] = xCreateMatrix(hiddenLayerBiases->rows, hiddenLayerBiases->cols, hiddenLayerBiases->matrixData);
     vReconstructHiddenBiases(NN, hiddenLayerBiases, hiddenLayerNum);
 }
