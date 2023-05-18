@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-Matrix * xCreateMatrix(uint8_t rows, uint8_t cols, double * newData)
+Matrix * xCreateMatrix(uint16_t rows, uint16_t cols, double * newData)
 {
     Matrix * newMatrix = (Matrix*) malloc(sizeof(Matrix));
     newMatrix->rows = rows;
@@ -21,14 +21,14 @@ Matrix * xDotProduct(Matrix * matrix1, Matrix * matrix2)
 
     Matrix * dotMatrix = xCreateEmptyMatrix(matrix1->rows, matrix2->cols);
 
-    for (uint8_t row = 0; row < dotMatrix->rows; row++)
+    for (uint16_t row = 0; row < dotMatrix->rows; row++)
     {
         double * tempRowVal = xGetRow(matrix1, row);
-        for (uint8_t col = 0; col < dotMatrix->cols; col++)
+        for (uint16_t col = 0; col < dotMatrix->cols; col++)
         {
             double * tempColValue = xGetCol(matrix2, col);
             double sum = 0.0;
-            for (uint8_t i = 0; i < matrix1->cols; i++)
+            for (uint16_t i = 0; i < matrix1->cols; i++)
             {
                 sum += tempRowVal[i] * tempColValue[i];
             }
@@ -51,9 +51,9 @@ Matrix * xMatrixAdd(Matrix * matrix1, Matrix * matrix2)
 
     Matrix * matrixSum = xCreateEmptyMatrix(matrix1->rows, matrix2->cols);
 
-    for (uint8_t row = 0; row < matrixSum->rows; row++)
+    for (uint16_t row = 0; row < matrixSum->rows; row++)
     {
-        for (uint8_t col = 0; col < matrixSum->cols; col++)
+        for (uint16_t col = 0; col < matrixSum->cols; col++)
         {
             matrixSum->matrixData[row * matrixSum->cols + col] = matrix1->matrixData[row * matrix1->cols + col] + matrix2->matrixData[row * matrix2->cols + col];
         }
@@ -71,9 +71,9 @@ Matrix * xMatrixSubtract(Matrix * matrix1, Matrix * matrix2)
 
     Matrix * matrixDifference = xCreateEmptyMatrix(matrix1->rows, matrix2->cols);
 
-    for (uint8_t row = 0; row < matrixDifference->rows; row++)
+    for (uint16_t row = 0; row < matrixDifference->rows; row++)
     {
-        for (uint8_t col = 0; col < matrixDifference->cols; col++)
+        for (uint16_t col = 0; col < matrixDifference->cols; col++)
         {
             matrixDifference->matrixData[row * matrixDifference->cols + col] = matrix1->matrixData[row * matrix1->cols + col] - matrix2->matrixData[row * matrix2->cols + col];
         }
@@ -85,9 +85,9 @@ Matrix * xMatrixSquareEachElement(Matrix * m)
 {
     Matrix * matrixSquare = xCreateEmptyMatrix(m->rows, m->cols);
 
-    for (uint8_t row = 0; row < matrixSquare->rows; row++)
+    for (uint16_t row = 0; row < matrixSquare->rows; row++)
     {
-        for (uint8_t col = 0; col < matrixSquare->cols; col++)
+        for (uint16_t col = 0; col < matrixSquare->cols; col++)
         {
             double value = m->matrixData[row * m->cols + col];
             matrixSquare->matrixData[row * m->cols + col] = value * value;        
@@ -97,7 +97,7 @@ Matrix * xMatrixSquareEachElement(Matrix * m)
     return matrixSquare;
 }
 
-static Matrix * xCreateEmptyMatrix(uint8_t rows, uint8_t cols)
+static Matrix * xCreateEmptyMatrix(uint16_t rows, uint16_t cols)
 {
     Matrix * matrix = (Matrix*) malloc(sizeof(Matrix));
     matrix->rows = rows;
@@ -106,7 +106,7 @@ static Matrix * xCreateEmptyMatrix(uint8_t rows, uint8_t cols)
     return matrix;   
 }
 
-static double * xGetRow(Matrix * m, uint8_t rowNum)
+static double * xGetRow(Matrix * m, uint16_t rowNum)
 {
     if (rowNum >= m->rows)
     {
@@ -116,7 +116,7 @@ static double * xGetRow(Matrix * m, uint8_t rowNum)
 
     double * rowRetVal = (double *) malloc(m->cols * sizeof(double));
 
-    for (uint8_t col = 0; col < m->cols; col++)
+    for (uint16_t col = 0; col < m->cols; col++)
     {
         rowRetVal[col] = m->matrixData[rowNum * m->rows + col];
     }
@@ -124,7 +124,7 @@ static double * xGetRow(Matrix * m, uint8_t rowNum)
     return rowRetVal;
 }
 
-static double * xGetCol(Matrix * m, uint8_t colNum)
+static double * xGetCol(Matrix * m, uint16_t colNum)
 {
     if (colNum >= m->cols)
     {
@@ -134,7 +134,7 @@ static double * xGetCol(Matrix * m, uint8_t colNum)
 
     double * colRetVal = (double *) malloc(m->rows * sizeof(double));
 
-    for (uint8_t row = 0; row < m->rows; row++)
+    for (uint16_t row = 0; row < m->rows; row++)
     {
         colRetVal[row] = m->matrixData[row * m->cols + colNum];
     }

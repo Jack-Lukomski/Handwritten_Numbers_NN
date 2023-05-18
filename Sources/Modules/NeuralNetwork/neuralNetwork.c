@@ -70,9 +70,9 @@ Matrix * xForwardPropagation (NerualNetwork * NN, e_FunctionOption activationFun
     return outputSumMatrix;
 }
 
-void vTrainNeuralNetwork (NerualNetwork * NN, Matrix * expectedOutputMatrix, uint8_t numEpochs, double learningRate)
+void vTrainNeuralNetwork (NerualNetwork * NN, Matrix * expectedOutputMatrix, uint16_t numEpochs, double learningRate)
 {
-    for (uint8_t currEpoch = 0; currEpoch < numEpochs; currEpoch++)
+    for (uint16_t currEpoch = 0; currEpoch < numEpochs; currEpoch++)
     {
         Matrix * outputMatrix = xForwardPropagation(NN, Sigmoid);
         Matrix * outputError = xMatrixSubtract(outputError, expectedOutputMatrix);
