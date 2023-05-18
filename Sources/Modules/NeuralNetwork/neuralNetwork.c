@@ -125,7 +125,7 @@ void vReconstructHiddenBiases(NerualNetwork * NN, Matrix * newData, uint16_t cur
 
 void vPrintAllLayers (NerualNetwork * NN)
 {
-    uint16_t hiddenNeuronCount = 0;
+    uint32_t hiddenNeuronCount = 0;
     printf("Input Layer Weights:\n\n");
     vPrintMatrix(NN->inputLayer->inputLayer);
     printf("------------------------------------------------------\n");
@@ -147,6 +147,6 @@ void vPrintAllLayers (NerualNetwork * NN)
     printf("\nSummary:\n");
     printf("Number of Inputs: %d\n", NN->inputLayer->inputLayer->cols);
     printf("Number of Outputs: %d\n", NN->outputLayer->outputLayer->cols);
-    printf("Number of Neurons: %d\n", NN->inputLayer->inputLayer->cols + hiddenNeuronCount + NN->outputLayer->outputLayer->cols);
-    printf("Number of Hidden Neurons: %d\n", hiddenNeuronCount);
+    // printf("Number of Neurons: %d\n", NN->inputLayer->inputLayer->cols + hiddenNeuronCount + NN->outputLayer->outputLayer->cols);
+    // printf("Number of Hidden Neurons: %d\n", hiddenNeuronCount);
 }

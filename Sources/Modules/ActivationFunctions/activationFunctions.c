@@ -20,7 +20,7 @@ ActivationFunction * xCreateActivationFunction (e_FunctionOption functionType)
 
 double xSigmoidFunction (double x)
 {
-    return 1/(1 + pow(exp(1.0), -1*x));
+    return (1 / (1 + pow(EULER_NUMBER, -x)));
 }
 
 double xTanhFunction(double x) 

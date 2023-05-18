@@ -6,6 +6,7 @@
 #include <math.h>
 
 #define NUM_ACTIVATION_FUNCTIONS 6
+#define EULER_NUMBER 2.71828
 
 typedef double (*xActivationFunctionPtr)(double x);
 
@@ -30,6 +31,6 @@ typedef struct {
     xActivationFunctionPtr function;
 } ActivationFunction;
 
-ActivationFunction * xCreateActivationFunction (e_FunctionOption functionType);
+ActivationFunction * xCreateActivationFunction (e_FunctionOption functionType);;
 
 #endif
