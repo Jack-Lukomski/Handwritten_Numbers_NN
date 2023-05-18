@@ -43,7 +43,7 @@ NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHidde
     return newNN;
 }
 
-Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction)
+Matrix * xForwardPropagation (NerualNetwork * NN, e_FunctionOption activationFunction)
 {
     ActivationFunction * currActivationFunction = xCreateActivationFunction(activationFunction);
     Matrix * outputSumMatrix = (Matrix *) malloc(sizeof(Matrix));
@@ -68,6 +68,16 @@ Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunc
     free(currActivationFunction);
 
     return outputSumMatrix;
+}
+
+void vTrainNeuralNetwork (NerualNetwork * NN, Matrix * expectedOutputMatrix, uint8_t numEpochs, double learningRate)
+{
+    for (uint8_t currEpoch = 0; currEpoch < numEpochs; currEpoch++)
+    {
+        Matrix * outputMatrix = xForwardPropagation(NN, Sigmoid);
+        Matrix * outputError = xMatrixSubtract(outputError, expectedOutputMatrix);
+        outputError = xMatrixSquareEachElement(outputError);
+    }
 }
 
 static void vApplyActivationFunction(Matrix * m, ActivationFunction * function)

@@ -33,8 +33,11 @@ typedef struct
 static InputLayer * xConstuctInputLayer (Matrix * inputMatrix);
 static HiddenLayer * xConstructHiddenLayer (Matrix * hiddenLayerMatrix, Matrix * biases);
 static OutputLayer * xConstructOutputLayer (Matrix * outputLayerMatrix, Matrix * biases);
+
 NerualNetwork * xConstructNeuralNetwork (Matrix * inputMatrix, uint16_t numHiddenLayers, Matrix * hiddenLayerMatricies[numHiddenLayers], Matrix * hiddenLayerBiases[numHiddenLayers], Matrix * outputLayerMatrix, Matrix * outputLayerBiases);
-Matrix * xComputeOutputSums (NerualNetwork * NN, e_FunctionOption activationFunction);
+Matrix * xForwardPropagation (NerualNetwork * NN, e_FunctionOption activationFunction);
+void vTrainNeuralNetwork (NerualNetwork * NN, Matrix * expectedOutputMatrix, uint8_t numEpochs, double learningRate);
+
 void vPrintAllLayers (NerualNetwork * NN);
 static void vApplyActivationFunction(Matrix * m, ActivationFunction * function);
 

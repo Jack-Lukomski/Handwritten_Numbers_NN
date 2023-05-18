@@ -61,6 +61,42 @@ Matrix * xMatrixAdd(Matrix * matrix1, Matrix * matrix2)
     return matrixSum;
 }
 
+Matrix * xMatrixSubtract(Matrix * matrix1, Matrix * matrix2)
+{
+    if (matrix1->rows != matrix2->rows || matrix1->cols != matrix2->cols)
+    {
+        printf("Cannot subtract matricies of different sizes\n");
+        return NULL;
+    }
+
+    Matrix * matrixDifference = xCreateEmptyMatrix(matrix1->rows, matrix2->cols);
+
+    for (uint8_t row = 0; row < matrixDifference->rows; row++)
+    {
+        for (uint8_t col = 0; col < matrixDifference->cols; col++)
+        {
+            matrixDifference->matrixData[row * matrixDifference->cols + col] = matrix1->matrixData[row * matrix1->cols + col] - matrix2->matrixData[row * matrix2->cols + col];
+        }
+    }
+    return matrixDifference;
+}
+
+Matrix * xMatrixSquareEachElement(Matrix * m)
+{
+    Matrix * matrixSquare = xCreateEmptyMatrix(m->rows, m->cols);
+
+    for (uint8_t row = 0; row < matrixSquare->rows; row++)
+    {
+        for (uint8_t col = 0; col < matrixSquare->cols; col++)
+        {
+            double value = m->matrixData[row * m->cols + col];
+            matrixSquare->matrixData[row * m->cols + col] = value * value;        
+        }
+    }
+
+    return matrixSquare;
+}
+
 static Matrix * xCreateEmptyMatrix(uint8_t rows, uint8_t cols)
 {
     Matrix * matrix = (Matrix*) malloc(sizeof(Matrix));
