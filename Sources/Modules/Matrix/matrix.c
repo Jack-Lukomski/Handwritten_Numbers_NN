@@ -97,7 +97,7 @@ Matrix * xMatrixSquareEachElement(Matrix * m)
     return matrixSquare;
 }
 
-static Matrix * xCreateEmptyMatrix(uint16_t rows, uint16_t cols)
+Matrix * xCreateEmptyMatrix(uint16_t rows, uint16_t cols)
 {
     Matrix * matrix = (Matrix*) malloc(sizeof(Matrix));
     matrix->rows = rows;

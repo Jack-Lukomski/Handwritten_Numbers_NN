@@ -75,8 +75,9 @@ void vTrainNeuralNetwork (NerualNetwork * NN, Matrix * expectedOutputMatrix, uin
     for (uint16_t currEpoch = 0; currEpoch < numEpochs; currEpoch++)
     {
         Matrix * outputMatrix = xForwardPropagation(NN, Sigmoid);
-        Matrix * outputError = xMatrixSubtract(outputError, expectedOutputMatrix);
+        Matrix * outputError = xMatrixSubtract(outputMatrix, expectedOutputMatrix);
         outputError = xMatrixSquareEachElement(outputError);
+        
     }
 }
 

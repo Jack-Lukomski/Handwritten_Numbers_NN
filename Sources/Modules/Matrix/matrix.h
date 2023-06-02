@@ -17,7 +17,7 @@ Matrix * xDotProduct(Matrix * matrix1, Matrix * matrix2);
 Matrix * xMatrixAdd(Matrix * matrix1, Matrix * matrix2);
 Matrix * xMatrixSubtract(Matrix * matrix1, Matrix * matrix2);
 Matrix * xMatrixSquareEachElement(Matrix * m);
-static Matrix * xCreateEmptyMatrix(uint16_t rows, uint16_t cols);
+Matrix * xCreateEmptyMatrix(uint16_t rows, uint16_t cols);
 static double * xGetRow(Matrix * m, uint16_t rowNum);
 static double * xGetCol(Matrix * m, uint16_t colNum);
 
