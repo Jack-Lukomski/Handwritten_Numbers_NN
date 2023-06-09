@@ -1,4 +1,0 @@
-add_subdirectory(Matrix)
-add_subdirectory(NeuralNetwork)
-add_subdirectory(ActivationFunctions)
-add_subdirectory(LayerCreation)

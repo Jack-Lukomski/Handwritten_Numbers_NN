@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "neuralcpp Docker Build",
+        "type": "shell",
+        "command": "docker",
+        "args": [
+          "run",
+          "-it",
+          "-v",
+          "C:\\Users\\jtluk\\GitHub\\NeuralC:/root/neuralcpp",
+          "neuralcpp",
+          "/bin/bash",
+          "-c",
+          "cd /root/neuralcpp && cd build && cmake .. && make && ./sources/driver/neuralcpp"
+        ],
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  
