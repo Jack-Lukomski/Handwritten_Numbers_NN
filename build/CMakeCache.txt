@@ -160,6 +160,9 @@ NeuralC++_BINARY_DIR:STATIC=/root/neuralcpp/build
 //Value Computed by CMake
 NeuralC++_SOURCE_DIR:STATIC=/root/neuralcpp
 
+//Dependencies for target
+layer_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 neuralcpp_BINARY_DIR:STATIC=/root/neuralcpp/build
 
@@ -249,7 +252,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

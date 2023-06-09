@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles /root/neuralcpp/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /root/neuralcpp/build && $(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles /root/neuralcpp/build/sources/include/CMakeFiles/progress.marks
+	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/include/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/include/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,44 +97,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/include/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/include/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /root/neuralcpp/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named neuralcpp
-
-# Build rule for target.
-neuralcpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 neuralcpp
-.PHONY : neuralcpp
-
-# fast build rule for target.
-neuralcpp/fast:
-	$(MAKE) -f sources/driver/CMakeFiles/neuralcpp.dir/build.make sources/driver/CMakeFiles/neuralcpp.dir/build
-.PHONY : neuralcpp/fast
-
-#=============================================================================
-# Target rules for targets named layer
-
-# Build rule for target.
-layer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 layer
-.PHONY : layer
-
-# fast build rule for target.
-layer/fast:
-	$(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/build
-.PHONY : layer/fast
 
 # Help Target
 help:
@@ -144,8 +118,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... neuralcpp"
-	@echo "... layer"
 .PHONY : help
 
 
@@ -157,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /root/neuralcpp/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,4 +1,4 @@
-# Install script for directory: /root/neuralcpp/sources
+# Install script for directory: /root/neuralcpp/sources/modules
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,12 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/root/neuralcpp/build/sources/driver/cmake_install.cmake")
-  include("/root/neuralcpp/build/sources/modules/cmake_install.cmake")
-
 endif()
 

@@ -6,15 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/root/neuralcpp/sources/driver/main.cpp
-iostream
--
-../include/Layer.hpp
-/root/neuralcpp/sources/include/Layer.hpp
-
 /root/neuralcpp/sources/include/Layer.hpp
 armadillo
 -
 iostream
 -
+
+/root/neuralcpp/sources/modules/Layer.cpp
+../include/Layer.hpp
+/root/neuralcpp/sources/include/Layer.hpp
 

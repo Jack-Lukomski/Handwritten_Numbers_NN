@@ -12,6 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "../sources/CMakeLists.txt"
   "../sources/driver/CMakeLists.txt"
+  "../sources/modules/CMakeLists.txt"
   "/usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeGenericSystem.cmake"
@@ -38,9 +39,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "sources/CMakeFiles/CMakeDirectoryInformation.cmake"
   "sources/driver/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "sources/modules/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "sources/driver/CMakeFiles/neuralcpp.dir/DependInfo.cmake"
+  "sources/modules/CMakeFiles/layer.dir/DependInfo.cmake"
   )

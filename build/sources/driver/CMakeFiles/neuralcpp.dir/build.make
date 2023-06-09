@@ -90,6 +90,7 @@ neuralcpp_EXTERNAL_OBJECTS =
 
 sources/driver/neuralcpp: sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o
 sources/driver/neuralcpp: sources/driver/CMakeFiles/neuralcpp.dir/build.make
+sources/driver/neuralcpp: sources/modules/liblayer.a
 sources/driver/neuralcpp: sources/driver/CMakeFiles/neuralcpp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable neuralcpp"
 	cd /root/neuralcpp/build/sources/driver && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/neuralcpp.dir/link.txt --verbose=$(VERBOSE)
