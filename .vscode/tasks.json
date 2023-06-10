@@ -8,7 +8,6 @@
         "args": [
           "run",
           "--rm",
-          "-it",
           "-v",
           "C:\\Users\\jtluk\\GitHub\\NeuralC:/root/neuralcpp",
           "neuralcpp",

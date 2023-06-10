@@ -46,4 +46,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "sources/driver/CMakeFiles/neuralcpp.dir/DependInfo.cmake"
   "sources/modules/CMakeFiles/layer.dir/DependInfo.cmake"
+  "sources/modules/CMakeFiles/nn.dir/DependInfo.cmake"
   )

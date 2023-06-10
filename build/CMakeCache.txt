@@ -169,6 +169,9 @@ neuralcpp_BINARY_DIR:STATIC=/root/neuralcpp/build
 //Value Computed by CMake
 neuralcpp_SOURCE_DIR:STATIC=/root/neuralcpp
 
+//Dependencies for the target
+nn_LIB_DEPENDS:STATIC=general;layer;
+
 
 ########################
 # INTERNAL cache entries

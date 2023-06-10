@@ -6,5 +6,6 @@
 /root/neuralcpp/build/sources/driver/CMakeFiles/neuralcpp.dir
 /root/neuralcpp/build/sources/driver/CMakeFiles/edit_cache.dir
 /root/neuralcpp/build/sources/modules/CMakeFiles/rebuild_cache.dir
-/root/neuralcpp/build/sources/modules/CMakeFiles/layer.dir
 /root/neuralcpp/build/sources/modules/CMakeFiles/edit_cache.dir
+/root/neuralcpp/build/sources/modules/CMakeFiles/layer.dir
+/root/neuralcpp/build/sources/modules/CMakeFiles/nn.dir

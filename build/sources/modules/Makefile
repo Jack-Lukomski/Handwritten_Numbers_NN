@@ -125,6 +125,21 @@ layer/fast:
 	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/build
 .PHONY : layer/fast
 
+# Convenience name for target.
+sources/modules/CMakeFiles/nn.dir/rule:
+	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/nn.dir/rule
+.PHONY : sources/modules/CMakeFiles/nn.dir/rule
+
+# Convenience name for target.
+nn: sources/modules/CMakeFiles/nn.dir/rule
+
+.PHONY : nn
+
+# fast build rule for target.
+nn/fast:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/build
+.PHONY : nn/fast
+
 Layer.o: Layer.cpp.o
 
 .PHONY : Layer.o
@@ -152,6 +167,33 @@ Layer.cpp.s:
 	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/Layer.cpp.s
 .PHONY : Layer.cpp.s
 
+NeuralNetwork.o: NeuralNetwork.cpp.o
+
+.PHONY : NeuralNetwork.o
+
+# target to build an object file
+NeuralNetwork.cpp.o:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/NeuralNetwork.cpp.o
+.PHONY : NeuralNetwork.cpp.o
+
+NeuralNetwork.i: NeuralNetwork.cpp.i
+
+.PHONY : NeuralNetwork.i
+
+# target to preprocess a source file
+NeuralNetwork.cpp.i:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/NeuralNetwork.cpp.i
+.PHONY : NeuralNetwork.cpp.i
+
+NeuralNetwork.s: NeuralNetwork.cpp.s
+
+.PHONY : NeuralNetwork.s
+
+# target to generate assembly for a file
+NeuralNetwork.cpp.s:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/NeuralNetwork.cpp.s
+.PHONY : NeuralNetwork.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,11 +201,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... layer"
 	@echo "... edit_cache"
+	@echo "... layer"
+	@echo "... nn"
 	@echo "... Layer.o"
 	@echo "... Layer.i"
 	@echo "... Layer.s"
+	@echo "... NeuralNetwork.o"
+	@echo "... NeuralNetwork.i"
+	@echo "... NeuralNetwork.s"
 .PHONY : help
 
 

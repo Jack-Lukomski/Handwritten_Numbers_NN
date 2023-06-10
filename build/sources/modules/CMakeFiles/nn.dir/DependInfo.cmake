@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/neuralcpp/sources/driver/main.cpp" "/root/neuralcpp/build/sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o"
+  "/root/neuralcpp/sources/modules/NeuralNetwork.cpp" "/root/neuralcpp/build/sources/modules/CMakeFiles/nn.dir/NeuralNetwork.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -14,7 +14,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/root/neuralcpp/build/sources/modules/CMakeFiles/nn.dir/DependInfo.cmake"
   "/root/neuralcpp/build/sources/modules/CMakeFiles/layer.dir/DependInfo.cmake"
   )
 

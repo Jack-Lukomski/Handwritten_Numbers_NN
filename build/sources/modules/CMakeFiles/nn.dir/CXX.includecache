@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/root/neuralcpp/sources/driver/main.cpp
-iostream
--
-vector
--
-../include/NeuralNetwork.hpp
-/root/neuralcpp/sources/include/NeuralNetwork.hpp
-
 /root/neuralcpp/sources/include/Layer.hpp
 armadillo
 -
@@ -29,4 +21,8 @@ functional
 -
 armadillo
 -
+
+/root/neuralcpp/sources/modules/NeuralNetwork.cpp
+../include/NeuralNetwork.hpp
+/root/neuralcpp/sources/include/NeuralNetwork.hpp
 

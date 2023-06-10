@@ -6,7 +6,7 @@ Layer::Layer(const arma::mat& layerWeights, const arma::mat& layerBiases, LayerT
 {
     if (layerType == LayerType::InputLayer)
     {
-        // error because the input layer cannot have biases
+        throw std::runtime_error("ERROR: Input Layer cannot have biases");
     }
 
     layerWeights_ = layerWeights;
@@ -18,7 +18,12 @@ Layer::Layer(const arma::mat& layerWeights, LayerType layerType)
 {
     if (layerType != LayerType::InputLayer)
     {
-        // error, only the input layer cannot have biases
+        throw std::runtime_error("ERROR: Only the Input Layer cannot have biases");
+    }
+
+    if (layerWeights.n_cols != 1)
+    {
+        throw std::runtime_error("ERROR: The Input Layer can only have one col");
     }
 
     layerWeights_ = layerWeights;
@@ -34,7 +39,7 @@ const arma::mat& Layer::getLayerBiases() const
 {
     if (layerType_ == LayerType::InputLayer)
     {
-        // error
+        throw std::runtime_error("ERROR: Input Layer does not have biases");
     }
 
     return layerBiases_;
@@ -54,7 +59,7 @@ void Layer::setLayerBiases(const arma::mat& layerBiases)
 {
     if (layerType_ == LayerType::InputLayer)
     {
-        // error
+        throw std::runtime_error("ERROR: Input Layer does not have biases");
     }
 
     layerBiases_ = layerBiases;

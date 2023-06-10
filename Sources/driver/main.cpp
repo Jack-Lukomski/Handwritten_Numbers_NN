@@ -1,18 +1,12 @@
 #include <iostream>
-#include "../include/Layer.hpp"
+#include <vector>
+#include "../include/NeuralNetwork.hpp"
 
 int main () 
 {
-    // Create a matrix
-    arma::mat A = {{1.0, 2.0, 3.0},
-                   {4.0, 5.0, 6.0},
-                   {7.0, 8.0, 9.0}};
+    std::vector<uint32_t> hiddenN = {4, 4};
+    NeuralNetwork nn(2, 2, hiddenN, 2);
 
-    arma::mat B(arma::size(3, 1));
-    B << 1.0 << 4.5 << 8.8;
-
-    Layer hl1(A, B, LayerType::HiddenLayer);
-    hl1.printLayer();
-
+    nn.printNetwork();
     return 0;    
 }
