@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/neuralcpp/sources/include/ActivationFunctions.hpp
+armadillo
+-
+
+/root/neuralcpp/sources/modules/ActivationFunctions.cpp
+../include/ActivationFunctions.hpp
+/root/neuralcpp/sources/include/ActivationFunctions.hpp
+

@@ -14,6 +14,10 @@ vector
 ../include/NeuralNetwork.hpp
 /root/neuralcpp/sources/include/NeuralNetwork.hpp
 
+/root/neuralcpp/sources/include/ActivationFunctions.hpp
+armadillo
+-
+
 /root/neuralcpp/sources/include/Layer.hpp
 armadillo
 -
@@ -23,10 +27,14 @@ iostream
 /root/neuralcpp/sources/include/NeuralNetwork.hpp
 Layer.hpp
 /root/neuralcpp/sources/include/Layer.hpp
+ActivationFunctions.hpp
+/root/neuralcpp/sources/include/ActivationFunctions.hpp
 vector
 -
 functional
 -
 armadillo
+-
+random
 -
 

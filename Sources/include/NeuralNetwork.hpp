@@ -2,9 +2,11 @@
 #define NEURALNETWORK_HPP
 
 #include "Layer.hpp"
+#include "ActivationFunctions.hpp"
 #include <vector>
 #include <functional>
 #include <armadillo>
+#include <random>
 
 class NeuralNetwork {
 public:
@@ -13,6 +15,7 @@ public:
                   const std::vector<uint32_t>& numHiddenNeurons, 
                   uint32_t numOutputs);
 
+    arma::mat forwardProp();                  
     void randomize();
     void printNetwork() const;
 

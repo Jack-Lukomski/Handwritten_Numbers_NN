@@ -29,9 +29,40 @@ NeuralNetwork::NeuralNetwork(uint32_t numInputs,
     layers_.push_back(outputLayer);
 }
 
-void NeuralNetwork::randomize() 
+arma::mat NeuralNetwork::forwardProp()
 {
-    // Randomize implementation
+    arma::mat layerOutput = layers_[0].getLayerWeights();
+
+    for (uint32_t layerIndex = 1; layerIndex < layers_.size(); layerIndex++)
+    {
+        layerOutput = arma::dot(layerOutput, layers_[layerIndex].getLayerWeights());
+        layerOutput = layerOutput + layers_[layerIndex].getLayerBiases();
+        layerOutput = ActivationFunctions::sigmoid(layerOutput);
+    }
+
+    return layerOutput;
+}
+
+
+void NeuralNetwork::randomize()
+{
+    std::default_random_engine generator;
+    std::uniform_real_distribution<double> distribution(-1.0, 1.0);
+
+    for (auto & layer: layers_)
+    {
+        if (layer.getLayerType() != LayerType::InputLayer)
+        {
+            arma::mat randWeights_mat(layer.getLayerWeights().n_rows, layer.getLayerWeights().n_cols);
+            arma::mat randBiases_mat(layer.getLayerBiases().n_rows, layer.getLayerBiases().n_cols);
+            
+            randWeights_mat.imbue([&]() { return distribution(generator); });
+            randBiases_mat.imbue([&]() { return distribution(generator); });
+
+            layer.setLayerWeights(randWeights_mat);
+            layer.setLayerBiases(randBiases_mat);
+        }
+    }
 }
 
 void NeuralNetwork::printNetwork() const 

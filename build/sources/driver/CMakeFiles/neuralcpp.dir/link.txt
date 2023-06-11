@@ -1,1 +1,1 @@
-/usr/bin/clang++     CMakeFiles/neuralcpp.dir/main.cpp.o  -o neuralcpp ../modules/libnn.a ../modules/liblayer.a 
+/usr/bin/clang++     CMakeFiles/neuralcpp.dir/main.cpp.o  -o neuralcpp ../modules/libnn.a ../modules/liblayer.a ../modules/libactivationfunctions.a 

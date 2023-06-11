@@ -124,6 +124,19 @@ neuralcpp/fast:
 .PHONY : neuralcpp/fast
 
 #=============================================================================
+# Target rules for targets named activationfunctions
+
+# Build rule for target.
+activationfunctions: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 activationfunctions
+.PHONY : activationfunctions
+
+# fast build rule for target.
+activationfunctions/fast:
+	$(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/build
+.PHONY : activationfunctions/fast
+
+#=============================================================================
 # Target rules for targets named layer
 
 # Build rule for target.
@@ -158,6 +171,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... neuralcpp"
+	@echo "... activationfunctions"
 	@echo "... layer"
 	@echo "... nn"
 .PHONY : help
