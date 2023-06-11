@@ -13,6 +13,8 @@ vector
 -
 ../include/NeuralNetwork.hpp
 /root/neuralcpp/sources/include/NeuralNetwork.hpp
+../include/ActivationFunctions.hpp
+/root/neuralcpp/sources/include/ActivationFunctions.hpp
 
 /root/neuralcpp/sources/include/ActivationFunctions.hpp
 armadillo

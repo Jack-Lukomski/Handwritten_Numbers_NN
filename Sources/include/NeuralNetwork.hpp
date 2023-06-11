@@ -15,7 +15,8 @@ public:
                   const std::vector<uint32_t>& numHiddenNeurons, 
                   uint32_t numOutputs);
 
-    arma::mat forwardProp(arma::mat & input);                  
+    arma::mat forwardProp(arma::mat & input, arma::mat (*activationFunction)(const arma::mat&));
+    void train(arma::mat & inputs, arma::mat & target, double learningRate, uint32_t epochs, arma::mat (*activationFunction)(const arma::mat&));
     void randomize();
     void printNetwork() const;
 
