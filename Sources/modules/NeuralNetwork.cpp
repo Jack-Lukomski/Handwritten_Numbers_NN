@@ -9,7 +9,7 @@ NeuralNetwork::NeuralNetwork(uint32_t numInputs,
                             numHiddenNeurons_(numHiddenNeurons), 
                             numOutputs_(numOutputs) 
 {
-    arma::mat inputLayer_mat = arma::zeros<arma::mat>(numInputs, 1);
+    arma::mat inputLayer_mat = arma::zeros<arma::mat>(1, numInputs);
     Layer inputLayer(inputLayer_mat, LayerType::InputLayer);
     layers_.push_back(inputLayer);
 
@@ -17,29 +17,30 @@ NeuralNetwork::NeuralNetwork(uint32_t numInputs,
     for (uint32_t layerIndex = 0; layerIndex < numHiddenLayers; layerIndex++)
     {
         arma::mat hiddenLayerWeights_mat = arma::zeros<arma::mat>(numHiddenNeurons[layerIndex], prevLayerNeuronCt);
-        arma::mat hiddenLayerBiases_mat = arma::zeros<arma::mat>(numHiddenNeurons[layerIndex], 1);
+        arma::mat hiddenLayerBiases_mat = arma::zeros<arma::mat>(1, numHiddenNeurons[layerIndex]);
         Layer hiddenLayer(hiddenLayerWeights_mat, hiddenLayerBiases_mat, LayerType::HiddenLayer);
         layers_.push_back(hiddenLayer);
         prevLayerNeuronCt = numHiddenNeurons[layerIndex];
     }
 
     arma::mat outputLayerWeights_mat = arma::zeros<arma::mat>(numOutputs, prevLayerNeuronCt);
-    arma::mat outputLayerBiases_mat = arma::zeros<arma::mat>(numOutputs, 1);
+    arma::mat outputLayerBiases_mat = arma::zeros<arma::mat>(1, numOutputs);
     Layer outputLayer(outputLayerWeights_mat, outputLayerBiases_mat, LayerType::OutputLayer);
     layers_.push_back(outputLayer);
 }
 
-arma::mat NeuralNetwork::forwardProp()
+arma::mat NeuralNetwork::forwardProp(arma::mat & input)
 {
+    layers_[0].setLayerWeights(input);
     arma::mat layerOutput = layers_[0].getLayerWeights();
 
     for (uint32_t layerIndex = 1; layerIndex < layers_.size(); layerIndex++)
     {
-        layerOutput = arma::dot(layerOutput, layers_[layerIndex].getLayerWeights());
+        layerOutput = layerOutput * layers_[layerIndex].getLayerWeights();
         layerOutput = layerOutput + layers_[layerIndex].getLayerBiases();
         layerOutput = ActivationFunctions::sigmoid(layerOutput);
     }
-
+    
     return layerOutput;
 }
 

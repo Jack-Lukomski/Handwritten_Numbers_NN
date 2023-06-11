@@ -21,7 +21,7 @@ Layer::Layer(const arma::mat& layerWeights, LayerType layerType)
         throw std::runtime_error("ERROR: Only the Input Layer cannot have biases");
     }
 
-    if (layerWeights.n_cols != 1)
+    if (layerWeights.n_rows != 1)
     {
         throw std::runtime_error("ERROR: The Input Layer can only have one col");
     }
@@ -52,6 +52,11 @@ LayerType Layer::getLayerType() const
 
 void Layer::setLayerWeights(const arma::mat& layerWeights)
 {
+    if ((layerWeights.n_cols != layerWeights_.n_cols) || (layerWeights.n_rows != layerWeights_.n_rows))
+    {
+        throw std::runtime_error("ERROR: Cannnot set a new layer size");
+    }
+    
     layerWeights_ = layerWeights;
 }
 
