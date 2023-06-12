@@ -7,6 +7,9 @@ namespace ActivationFunctions {
     arma::mat sigmoid(const arma::mat& matrix);
     arma::mat tanh_act(const arma::mat& matrix);
     arma::mat relu(const arma::mat& matrix);
+    arma::mat sigmoidDerivative(const arma::mat& output);
+    arma::mat tanhDerivative(const arma::mat& output);
+    arma::mat reluDerivative(const arma::mat& input);
 }
 
 #endif /* ACTIVATION_FUNCTIONS_HPP */

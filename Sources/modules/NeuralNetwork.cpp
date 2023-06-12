@@ -29,31 +29,49 @@ NeuralNetwork::NeuralNetwork(uint32_t numInputs,
     layers_.push_back(outputLayer);
 }
 
-arma::mat NeuralNetwork::forwardProp(arma::mat & input, arma::mat (*activationFunction)(const arma::mat&))
+std::vector<arma::mat> NeuralNetwork::forwardProp(arma::mat & input, arma::mat (*activationFunction)(const arma::mat&))
 {
+    std::vector<arma::mat> outputs;
+
     layers_[0].setLayerWeights(input);
     arma::mat layerOutput = layers_[0].getLayerWeights();
+    outputs.push_back(layerOutput);
 
     for (uint32_t layerIndex = 1; layerIndex < layers_.size(); layerIndex++)
     {
         layerOutput = layerOutput * layers_[layerIndex].getLayerWeights();
         layerOutput = layerOutput + layers_[layerIndex].getLayerBiases();
         layerOutput = activationFunction(layerOutput);
+        outputs.push_back(layerOutput);
     }
     
-    return layerOutput;
+    return outputs;
 }
 
-void NeuralNetwork::train(arma::mat & inputs, arma::mat & target, double learningRate, uint32_t epochs, arma::mat (*activationFunction)(const arma::mat&))
+void NeuralNetwork::train(arma::mat & inputs, 
+            arma::mat & target, 
+            double learningRate, 
+            uint32_t epochs, 
+            arma::mat (*activationFunction)(const arma::mat&), 
+            arma::mat (*derivativeFunction)(const arma::mat&))
 {
     for (uint32_t epoch = 0; epoch < epochs; epoch++)
     {
-        arma::mat output = NeuralNetwork::forwardProp(inputs, activationFunction);
-        arma::mat outputError = target - output; // May need to update to get mean square error loss
+        std::vector<arma::mat> outputs = NeuralNetwork::forwardProp(inputs, activationFunction);
+        arma::mat output = outputs.back();
+
+        arma::mat outputError = target - output;
 
         for (uint32_t layerIndex = layers_.size() - 1; layerIndex >= 1; layerIndex--)
         {
             Layer & currLayer = layers_[layerIndex];
+            arma::mat gradients = derivativeFunction(outputs[layerIndex]) % outputError * learningRate;
+            arma::mat deltas = gradients * outputs[layerIndex-1].t();
+
+            currLayer.setLayerWeights(currLayer.getLayerWeights() + deltas);
+            currLayer.setLayerBiases(currLayer.getLayerBiases() + gradients);
+
+            outputError = currLayer.getLayerWeights().t() * outputError;
         }
     }
 }

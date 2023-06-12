@@ -15,4 +15,19 @@ namespace ActivationFunctions {
     {
         return arma::clamp(matrix, 0.0, arma::datum::inf);
     }
+
+    arma::mat sigmoidDerivative(const arma::mat& output)
+    {
+        return output % (1 - output);
+    }
+
+    arma::mat tanhDerivative(const arma::mat& output)
+    {
+        return 1 - arma::pow(output, 2);
+    }
+
+    arma::mat reluDerivative(const arma::mat& input)
+    {
+        return arma::conv_to<arma::mat>::from(input > 0);
+    }
 }
