@@ -18,9 +18,8 @@ public:
     std::vector<arma::mat> forwardProp(arma::mat & input, 
                                        arma::mat (*activationFunction)(const arma::mat&));
 
-
-    void train(arma::mat & inputs, 
-               arma::mat & target, 
+    void train(std::vector<arma::mat> & inputs, 
+               std::vector<arma::mat> & targets, 
                double learningRate, 
                uint32_t epochs, 
                arma::mat (*activationFunction)(const arma::mat&), 

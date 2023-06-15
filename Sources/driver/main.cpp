@@ -10,43 +10,38 @@ typedef struct {
 
 int main () 
 {
-    XorTrainData zz;
-    XorTrainData zo;
-    XorTrainData oz;
-    XorTrainData oo;
+    std::vector<arma::mat> xorTrainInputData;
+    std::vector<arma::mat> xorTrainOutputData;
 
-    zz.input = arma::zeros<arma::mat>(1, 2);
-    zz.output = arma::zeros<arma::mat>(1, 1);
-    zo.input = arma::zeros<arma::mat>(1, 2);
-    zo.output = arma::zeros<arma::mat>(1, 1);
-    oz.input = arma::zeros<arma::mat>(1, 2);
-    oz.output = arma::zeros<arma::mat>(1, 1);
-    oo.input = arma::zeros<arma::mat>(1, 2);
-    oo.output = arma::zeros<arma::mat>(1, 1);
+    arma::mat zz_input = {{0.0, 0.0}};
+    arma::mat zz_output = arma::mat(1, 1).fill(0.0);
+    xorTrainInputData.push_back(zz_input);
+    xorTrainOutputData.push_back(zz_output);
 
-    zz.input << 0 << 0 << arma::endr;
-    zz.output << 0 << arma::endr;
+    arma::mat zo_input = {{0.0, 1.0}};
+    arma::mat zo_output = arma::mat(1, 1).fill(1.0);
+    xorTrainInputData.push_back(zo_input);
+    xorTrainOutputData.push_back(zo_output);
 
-    zo.input << 0 << 1 << arma::endr;
-    zo.output << 1 << arma::endr;
+    arma::mat oz_input = {{1.0, 0.0}};
+    arma::mat oz_output = arma::mat(1, 1).fill(1.0);
+    xorTrainInputData.push_back(oz_input);
+    xorTrainOutputData.push_back(oz_output);
 
-    oz.input << 1 << 0 << arma::endr;
-    oz.output << 1 << arma::endr;
+    arma::mat oo_input = {{1.0, 1.0}};
+    arma::mat oo_output = arma::mat(1, 1).fill(0.0);
+    xorTrainInputData.push_back(oo_input);
+    xorTrainOutputData.push_back(oo_output);
 
-    oo.input << 1 << 1 << arma::endr;
-    oo.output << 0 << arma::endr;
+    std::vector<uint32_t> numHiddedenNeurons = {4};
+    NeuralNetwork xorTest(2, 1, numHiddedenNeurons, 1);
 
-    std::vector<uint32_t> hiddenLayerNeurons = {4};
-    NeuralNetwork xorModel(2, 1, hiddenLayerNeurons, 1);
-    xorModel.randomize();
+    xorTest.randomize();
+    xorTest.train(xorTrainInputData, xorTrainOutputData, 0.3, 10000, ActivationFunctions::sigmoid, ActivationFunctions::sigmoidDerivative);
 
-    xorModel.train(zz.input, zz.output, 0.05, 1, ActivationFunctions::sigmoid, ActivationFunctions::sigmoidDerivative);
+    std::vector<arma::mat> outputs = xorTest.forwardProp(xorTrainInputData[1], ActivationFunctions::sigmoid);
 
-    // std::cout << "Outputs:" << std::endl; 
-    // for (const auto & curr: result)
-    // {
-    //     std::cout << curr << std::endl;
-    // }
+    std::cout << outputs[1] << std::endl;
 
     return 0;
 }
