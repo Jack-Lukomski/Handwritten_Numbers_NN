@@ -3,6 +3,5 @@
 
 sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o: ../sources/driver/main.cpp
 sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o: ../sources/include/ActivationFunctions.hpp
-sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o: ../sources/include/Layer.hpp
 sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o: ../sources/include/NeuralNetwork.hpp
 

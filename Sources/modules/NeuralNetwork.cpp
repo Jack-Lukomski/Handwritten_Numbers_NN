@@ -1,106 +1,29 @@
 #include "../include/NeuralNetwork.hpp"
 
-NeuralNetwork::NeuralNetwork(uint32_t numInputs, 
-                             uint32_t numHiddenLayers, 
-                             const std::vector<uint32_t>& numHiddenNeurons, 
-                             uint32_t numOutputs) 
-                            : numInputs_(numInputs), 
-                            numHiddenLayers_(numHiddenLayers), 
-                            numHiddenNeurons_(numHiddenNeurons), 
-                            numOutputs_(numOutputs) 
+NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture)
 {
-    uint32_t prevLayerNeuronCt = numInputs;
-    for (uint32_t layerIndex = 0; layerIndex < numHiddenLayers; layerIndex++)
+    _layerCount = architecture.size()-1;
+    _activations.push_back(arma::mat(1, architecture[0], arma::fill::zeros));
+
+    for (size_t i = 0; i < _layerCount; i++)
     {
-        arma::mat hiddenLayerWeights_mat = arma::zeros<arma::mat>(prevLayerNeuronCt, numHiddenNeurons[layerIndex]);
-        arma::mat hiddenLayerBiases_mat = arma::zeros<arma::mat>(1, numHiddenNeurons[layerIndex]);
-        Layer hiddenLayer(hiddenLayerWeights_mat, hiddenLayerBiases_mat, LayerType::HiddenLayer);
-        layers_.push_back(hiddenLayer);
-        prevLayerNeuronCt = numHiddenNeurons[layerIndex];
-    }
-
-    arma::mat outputLayerWeights_mat = arma::zeros<arma::mat>(prevLayerNeuronCt, numOutputs);
-    arma::mat outputLayerBiases_mat = arma::zeros<arma::mat>(1, numOutputs);
-    Layer outputLayer(outputLayerWeights_mat, outputLayerBiases_mat, LayerType::OutputLayer);
-    layers_.push_back(outputLayer);
-}
-
-std::vector<arma::mat> NeuralNetwork::forwardProp(arma::mat & input, arma::mat (*activationFunction)(const arma::mat&))
-{
-    std::vector<arma::mat> outputs;
-    arma::mat layerOutput = input;
-
-    for (uint32_t layerIndex = 0; layerIndex < layers_.size(); layerIndex++)
-    {
-        layerOutput = layerOutput * layers_[layerIndex].getLayerWeights();
-        layerOutput = layerOutput + layers_[layerIndex].getLayerBiases();
-        layerOutput = activationFunction(layerOutput);
-        outputs.push_back(layerOutput);
-    }
-    
-    return outputs;
-}
-
-void NeuralNetwork::train(std::vector<arma::mat> & inputs, 
-            std::vector<arma::mat> & targets, 
-            double learningRate, 
-            uint32_t epochs, 
-            arma::mat (*activationFunction)(const arma::mat&), 
-            arma::mat (*derivativeFunction)(const arma::mat&))
-{
-    for (uint32_t epoch = 0; epoch < epochs; epoch++)
-    {
-        for (uint32_t trainData = 0; trainData < inputs.size(); trainData++)
-        {
-            std::vector<arma::mat> outputs = NeuralNetwork::forwardProp(inputs[trainData], ActivationFunctions::sigmoid);
-            arma::mat outputError = targets[trainData] - outputs.back();
-
-            for (uint32_t layerIndex = layers_.size()-1; layerIndex > 0; layerIndex--)
-            {
-                arma::mat gradients = outputError % derivativeFunction(outputs[layerIndex]) * learningRate;
-                arma::mat deltas = gradients * outputs[layerIndex-1];
-                
-                arma::mat oldWeights = layers_[layerIndex].getLayerWeights();
-
-                arma::mat newLayerWeights = oldWeights + deltas.t();
-                arma::mat newLayerBiases = layers_[layerIndex].getLayerBiases() + gradients;
-
-                layers_[layerIndex].setLayerWeights(newLayerWeights);
-                layers_[layerIndex].setLayerBiases(newLayerBiases);
-
-                outputError = outputError * oldWeights.t();
-            }
-        }
+        _weights.push_back(arma::mat(_activations[i].n_cols, architecture[i + 1], arma::fill::zeros));
+        _biases.push_back(arma::mat(1, architecture[i + 1], arma::fill::zeros));
+        _activations.push_back(arma::mat(1, architecture[i + 1], arma::fill::zeros));
     }
 }
 
-void NeuralNetwork::randomize()
+void NeuralNetwork::randomize(float min, float max)
 {
-    std::default_random_engine generator;
-    std::uniform_real_distribution<double> distribution(-1.0, 1.0);
-
-    for (auto & layer: layers_)
-    {
-        if (layer.getLayerType() != LayerType::InputLayer)
-        {
-            arma::mat randWeights_mat(layer.getLayerWeights().n_rows, layer.getLayerWeights().n_cols);
-            arma::mat randBiases_mat(layer.getLayerBiases().n_rows, layer.getLayerBiases().n_cols);
-            
-            randWeights_mat.imbue([&]() { return distribution(generator); });
-            randBiases_mat.imbue([&]() { return distribution(generator); });
-
-            layer.setLayerWeights(randWeights_mat);
-            layer.setLayerBiases(randBiases_mat);
-        }
+    for (size_t i = 0; i < _layerCount; i++) {
+        _weights[i] = (arma::randu<arma::mat>(_weights[i].n_rows, _weights[i].n_cols) * (max - min) + min);
+        _biases[i] = (arma::randu<arma::mat>(_biases[i].n_rows, _biases[i].n_cols) * (max - min) + min);
     }
 }
 
-void NeuralNetwork::printNetwork() const 
+void NeuralNetwork::print() const 
 {
-    for (const auto & layer: layers_)
-    {
-        layer.printLayer();
+    for (size_t i = 0; i < _layerCount; i++) {
+        std::cout << _weights[i] << "\n" << _biases[i] << std::endl;
     }
 }
-
-NeuralNetwork::~NeuralNetwork() {}

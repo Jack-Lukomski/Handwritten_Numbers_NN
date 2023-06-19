@@ -1,41 +1,25 @@
 #ifndef NEURALNETWORK_HPP
 #define NEURALNETWORK_HPP
 
-#include "Layer.hpp"
 #include "ActivationFunctions.hpp"
 #include <vector>
 #include <functional>
 #include <armadillo>
-#include <random>
+
+typedef std::vector<uint32_t> NeuralNetArch_t;
 
 class NeuralNetwork {
 public:
-    NeuralNetwork(uint32_t numInputs, 
-                  uint32_t numHiddenLayers, 
-                  const std::vector<uint32_t>& numHiddenNeurons, 
-                  uint32_t numOutputs);
+    NeuralNetwork(NeuralNetArch_t & architecture);
 
-    std::vector<arma::mat> forwardProp(arma::mat & input, 
-                                       arma::mat (*activationFunction)(const arma::mat&));
-
-    void train(std::vector<arma::mat> & inputs, 
-               std::vector<arma::mat> & targets, 
-               double learningRate, 
-               uint32_t epochs, 
-               arma::mat (*activationFunction)(const arma::mat&), 
-               arma::mat (*derivativeFunction)(const arma::mat&));
-
-    void randomize();
-    void printNetwork() const;
-
-    ~NeuralNetwork();
+    void randomize(float min, float max);
+    void print() const;
 
 private:
-    std::vector<Layer> layers_;
-    uint32_t numInputs_;
-    uint32_t numHiddenLayers_;
-    std::vector<uint32_t> numHiddenNeurons_;
-    uint32_t numOutputs_;
+    size_t _layerCount;
+    std::vector<arma::mat> _weights;
+    std::vector<arma::mat> _biases;
+    std::vector<arma::mat> _activations;
 };
 
 #endif /* NEURALNETWORK_HPP */
