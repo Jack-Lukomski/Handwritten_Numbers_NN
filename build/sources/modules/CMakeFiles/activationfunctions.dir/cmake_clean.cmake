@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o"
+  "CMakeFiles/activationfunctions.dir/A_Func.cpp.o"
   "libactivationfunctions.pdb"
   "libactivationfunctions.a"
 )

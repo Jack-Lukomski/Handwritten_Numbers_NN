@@ -9,7 +9,7 @@
           "run",
           "--rm",
           "-v",
-          "C:\\Users\\jtluk\\GitHub\\NeuralC:/root/neuralcpp",
+          "${workspaceFolder}:/root/neuralcpp",
           "neuralcpp",
           "/bin/bash",
           "-c",

@@ -155,32 +155,32 @@ nn/fast:
 	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/build
 .PHONY : nn/fast
 
-ActivationFunctions.o: ActivationFunctions.cpp.o
+A_Func.o: A_Func.cpp.o
 
-.PHONY : ActivationFunctions.o
+.PHONY : A_Func.o
 
 # target to build an object file
-ActivationFunctions.cpp.o:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o
-.PHONY : ActivationFunctions.cpp.o
+A_Func.cpp.o:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o
+.PHONY : A_Func.cpp.o
 
-ActivationFunctions.i: ActivationFunctions.cpp.i
+A_Func.i: A_Func.cpp.i
 
-.PHONY : ActivationFunctions.i
+.PHONY : A_Func.i
 
 # target to preprocess a source file
-ActivationFunctions.cpp.i:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.i
-.PHONY : ActivationFunctions.cpp.i
+A_Func.cpp.i:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.i
+.PHONY : A_Func.cpp.i
 
-ActivationFunctions.s: ActivationFunctions.cpp.s
+A_Func.s: A_Func.cpp.s
 
-.PHONY : ActivationFunctions.s
+.PHONY : A_Func.s
 
 # target to generate assembly for a file
-ActivationFunctions.cpp.s:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.s
-.PHONY : ActivationFunctions.cpp.s
+A_Func.cpp.s:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.s
+.PHONY : A_Func.cpp.s
 
 Layer.o: Layer.cpp.o
 
@@ -247,9 +247,9 @@ help:
 	@echo "... activationfunctions"
 	@echo "... layer"
 	@echo "... nn"
-	@echo "... ActivationFunctions.o"
-	@echo "... ActivationFunctions.i"
-	@echo "... ActivationFunctions.s"
+	@echo "... A_Func.o"
+	@echo "... A_Func.i"
+	@echo "... A_Func.s"
 	@echo "... Layer.o"
 	@echo "... Layer.i"
 	@echo "... Layer.s"

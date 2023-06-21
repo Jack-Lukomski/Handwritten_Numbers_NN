@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "../include/NeuralNetwork.hpp"
-#include "../include/ActivationFunctions.hpp"
+#include "../include/A_Func.hpp"
 
 NeuralNetArch_t arch = {2, 4, 1};
 

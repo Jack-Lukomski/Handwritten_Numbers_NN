@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/root/neuralcpp/sources/include/ActivationFunctions.hpp
+/root/neuralcpp/sources/include/A_Func.hpp
 armadillo
 -
 
 /root/neuralcpp/sources/include/NeuralNetwork.hpp
-ActivationFunctions.hpp
-/root/neuralcpp/sources/include/ActivationFunctions.hpp
+A_Func.hpp
+/root/neuralcpp/sources/include/A_Func.hpp
 vector
 -
 functional

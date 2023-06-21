@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/neuralcpp/sources/modules/ActivationFunctions.cpp" "/root/neuralcpp/build/sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o"
+  "/root/neuralcpp/sources/modules/A_Func.cpp" "/root/neuralcpp/build/sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,2 +1,2 @@
-/usr/bin/ar qc libactivationfunctions.a  CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o
+/usr/bin/ar qc libactivationfunctions.a  CMakeFiles/activationfunctions.dir/A_Func.cpp.o
 /usr/bin/ranlib libactivationfunctions.a

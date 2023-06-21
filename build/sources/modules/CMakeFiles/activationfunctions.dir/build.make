@@ -57,38 +57,38 @@ include sources/modules/CMakeFiles/activationfunctions.dir/progress.make
 # Include the compile flags for this target's objects.
 include sources/modules/CMakeFiles/activationfunctions.dir/flags.make
 
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o: sources/modules/CMakeFiles/activationfunctions.dir/flags.make
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o: ../sources/modules/ActivationFunctions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o"
-	cd /root/neuralcpp/build/sources/modules && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o -c /root/neuralcpp/sources/modules/ActivationFunctions.cpp
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o: sources/modules/CMakeFiles/activationfunctions.dir/flags.make
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o: ../sources/modules/A_Func.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o"
+	cd /root/neuralcpp/build/sources/modules && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/activationfunctions.dir/A_Func.cpp.o -c /root/neuralcpp/sources/modules/A_Func.cpp
 
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.i"
-	cd /root/neuralcpp/build/sources/modules && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/neuralcpp/sources/modules/ActivationFunctions.cpp > CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.i
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/activationfunctions.dir/A_Func.cpp.i"
+	cd /root/neuralcpp/build/sources/modules && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/neuralcpp/sources/modules/A_Func.cpp > CMakeFiles/activationfunctions.dir/A_Func.cpp.i
 
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.s"
-	cd /root/neuralcpp/build/sources/modules && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/neuralcpp/sources/modules/ActivationFunctions.cpp -o CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.s
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/activationfunctions.dir/A_Func.cpp.s"
+	cd /root/neuralcpp/build/sources/modules && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/neuralcpp/sources/modules/A_Func.cpp -o CMakeFiles/activationfunctions.dir/A_Func.cpp.s
 
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.requires:
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.requires:
 
-.PHONY : sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.requires
+.PHONY : sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.requires
 
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.provides: sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.requires
-	$(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.provides.build
-.PHONY : sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.provides
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.provides: sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.requires
+	$(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.provides.build
+.PHONY : sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.provides
 
-sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.provides.build: sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o
+sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.provides.build: sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o
 
 
 # Object files for target activationfunctions
 activationfunctions_OBJECTS = \
-"CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o"
+"CMakeFiles/activationfunctions.dir/A_Func.cpp.o"
 
 # External object files for target activationfunctions
 activationfunctions_EXTERNAL_OBJECTS =
 
-sources/modules/libactivationfunctions.a: sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o
+sources/modules/libactivationfunctions.a: sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o
 sources/modules/libactivationfunctions.a: sources/modules/CMakeFiles/activationfunctions.dir/build.make
 sources/modules/libactivationfunctions.a: sources/modules/CMakeFiles/activationfunctions.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libactivationfunctions.a"
@@ -100,7 +100,7 @@ sources/modules/CMakeFiles/activationfunctions.dir/build: sources/modules/libact
 
 .PHONY : sources/modules/CMakeFiles/activationfunctions.dir/build
 
-sources/modules/CMakeFiles/activationfunctions.dir/requires: sources/modules/CMakeFiles/activationfunctions.dir/ActivationFunctions.cpp.o.requires
+sources/modules/CMakeFiles/activationfunctions.dir/requires: sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.o.requires
 
 .PHONY : sources/modules/CMakeFiles/activationfunctions.dir/requires
 

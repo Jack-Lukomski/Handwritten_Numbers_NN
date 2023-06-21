@@ -1,7 +1,7 @@
 #ifndef NEURALNETWORK_HPP
 #define NEURALNETWORK_HPP
 
-#include "ActivationFunctions.hpp"
+#include "A_Func.hpp"
 #include <vector>
 #include <functional>
 #include <armadillo>
