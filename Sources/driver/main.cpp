@@ -5,7 +5,7 @@
 
 NeuralNetArch_t arch = {2, 4, 1};
 
-int main () 
+int main ()
 {
     NeuralNetwork nn(arch);
     nn.print();

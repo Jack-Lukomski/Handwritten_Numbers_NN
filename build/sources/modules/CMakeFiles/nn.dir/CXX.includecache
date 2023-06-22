@@ -9,6 +9,10 @@
 /root/neuralcpp/sources/include/A_Func.hpp
 armadillo
 -
+iostream
+-
+vector
+-
 
 /root/neuralcpp/sources/include/NeuralNetwork.hpp
 A_Func.hpp
