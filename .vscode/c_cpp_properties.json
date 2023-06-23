@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:\\Users\\jtluk\\Downloads\\armadillo-12.4.0\\include"
+                "C:\\Users\\jtluk\\Downloads\\armadillo-12.4.0\\include",
+                "/usr/local/include"
             ],
             "defines": [],
             "cStandard": "c11",

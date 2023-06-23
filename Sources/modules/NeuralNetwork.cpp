@@ -16,11 +16,20 @@ NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture)
 void NeuralNetwork::forwardProp(A_Func_Type af)
 {
     A_Func actFunc(af);
-    for (size_t i = 0; i < _layerCount; i++) {
+    std::cout << "Input" << _activations[0] << std::endl;
+    for (size_t i = 0; i < _layerCount; ++i) {
         _activations[i + 1] = _activations[i] * _weights[i];
         _activations[i + 1] += _biases[i];
         actFunc.apply(_activations[i + 1]);
     }
+}
+
+void NeuralNetwork::setInput(arma::mat & input)
+{
+    assert(input.n_rows == _activations[0].n_rows);
+    assert(input.n_cols == _activations[0].n_cols);
+
+    _activations[0] = input;
 }
 
 arma::mat NeuralNetwork::getOutput()

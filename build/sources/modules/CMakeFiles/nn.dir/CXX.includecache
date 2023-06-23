@@ -21,6 +21,8 @@ functional
 -
 armadillo
 -
+cassert
+-
 
 /root/neuralcpp/sources/modules/NeuralNetwork.cpp
 ../include/NeuralNetwork.hpp

@@ -5,6 +5,7 @@
 #include <vector>
 #include <functional>
 #include <armadillo>
+#include <cassert>
 
 typedef std::vector<uint32_t> NeuralNetArch_t;
 
@@ -14,6 +15,7 @@ public:
 
     void forwardProp(A_Func_Type af);
     arma::mat getOutput();
+    void setInput(arma::mat & input);
     void randomize(float min, float max);
     void print() const;
 
