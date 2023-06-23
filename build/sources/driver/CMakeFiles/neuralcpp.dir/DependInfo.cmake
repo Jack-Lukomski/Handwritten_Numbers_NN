@@ -15,7 +15,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/root/neuralcpp/build/sources/modules/CMakeFiles/nn.dir/DependInfo.cmake"
-  "/root/neuralcpp/build/sources/modules/CMakeFiles/layer.dir/DependInfo.cmake"
   "/root/neuralcpp/build/sources/modules/CMakeFiles/activationfunctions.dir/DependInfo.cmake"
   )
 

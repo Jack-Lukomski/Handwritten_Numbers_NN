@@ -102,12 +102,11 @@ sources/driver/preinstall:
 # Target rules for target sources/driver/CMakeFiles/neuralcpp.dir
 
 # All Build rule for target.
-sources/driver/CMakeFiles/neuralcpp.dir/all: sources/modules/CMakeFiles/activationfunctions.dir/all
-sources/driver/CMakeFiles/neuralcpp.dir/all: sources/modules/CMakeFiles/layer.dir/all
 sources/driver/CMakeFiles/neuralcpp.dir/all: sources/modules/CMakeFiles/nn.dir/all
+sources/driver/CMakeFiles/neuralcpp.dir/all: sources/modules/CMakeFiles/activationfunctions.dir/all
 	$(MAKE) -f sources/driver/CMakeFiles/neuralcpp.dir/build.make sources/driver/CMakeFiles/neuralcpp.dir/depend
 	$(MAKE) -f sources/driver/CMakeFiles/neuralcpp.dir/build.make sources/driver/CMakeFiles/neuralcpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=5,6 "Built target neuralcpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=3,4 "Built target neuralcpp"
 .PHONY : sources/driver/CMakeFiles/neuralcpp.dir/all
 
 # Include target in all.
@@ -117,7 +116,7 @@ all: sources/driver/CMakeFiles/neuralcpp.dir/all
 
 # Build rule for subdir invocation for target.
 sources/driver/CMakeFiles/neuralcpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 sources/driver/CMakeFiles/neuralcpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 0
 .PHONY : sources/driver/CMakeFiles/neuralcpp.dir/rule
@@ -141,16 +140,14 @@ clean: sources/driver/CMakeFiles/neuralcpp.dir/clean
 # Directory level rules for directory sources/modules
 
 # Convenience name for "all" pass in the directory.
-sources/modules/all: sources/modules/CMakeFiles/activationfunctions.dir/all
-sources/modules/all: sources/modules/CMakeFiles/layer.dir/all
 sources/modules/all: sources/modules/CMakeFiles/nn.dir/all
+sources/modules/all: sources/modules/CMakeFiles/activationfunctions.dir/all
 
 .PHONY : sources/modules/all
 
 # Convenience name for "clean" pass in the directory.
-sources/modules/clean: sources/modules/CMakeFiles/activationfunctions.dir/clean
-sources/modules/clean: sources/modules/CMakeFiles/layer.dir/clean
 sources/modules/clean: sources/modules/CMakeFiles/nn.dir/clean
+sources/modules/clean: sources/modules/CMakeFiles/activationfunctions.dir/clean
 
 .PHONY : sources/modules/clean
 
@@ -158,6 +155,43 @@ sources/modules/clean: sources/modules/CMakeFiles/nn.dir/clean
 sources/modules/preinstall:
 
 .PHONY : sources/modules/preinstall
+
+#=============================================================================
+# Target rules for target sources/modules/CMakeFiles/nn.dir
+
+# All Build rule for target.
+sources/modules/CMakeFiles/nn.dir/all: sources/modules/CMakeFiles/activationfunctions.dir/all
+	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/depend
+	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=5,6 "Built target nn"
+.PHONY : sources/modules/CMakeFiles/nn.dir/all
+
+# Include target in all.
+all: sources/modules/CMakeFiles/nn.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+sources/modules/CMakeFiles/nn.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/nn.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 0
+.PHONY : sources/modules/CMakeFiles/nn.dir/rule
+
+# Convenience name for target.
+nn: sources/modules/CMakeFiles/nn.dir/rule
+
+.PHONY : nn
+
+# clean rule for target.
+sources/modules/CMakeFiles/nn.dir/clean:
+	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/clean
+.PHONY : sources/modules/CMakeFiles/nn.dir/clean
+
+# clean rule for target.
+clean: sources/modules/CMakeFiles/nn.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target sources/modules/CMakeFiles/activationfunctions.dir
@@ -193,81 +227,6 @@ sources/modules/CMakeFiles/activationfunctions.dir/clean:
 
 # clean rule for target.
 clean: sources/modules/CMakeFiles/activationfunctions.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target sources/modules/CMakeFiles/layer.dir
-
-# All Build rule for target.
-sources/modules/CMakeFiles/layer.dir/all:
-	$(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/depend
-	$(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=3,4 "Built target layer"
-.PHONY : sources/modules/CMakeFiles/layer.dir/all
-
-# Include target in all.
-all: sources/modules/CMakeFiles/layer.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-sources/modules/CMakeFiles/layer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/layer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 0
-.PHONY : sources/modules/CMakeFiles/layer.dir/rule
-
-# Convenience name for target.
-layer: sources/modules/CMakeFiles/layer.dir/rule
-
-.PHONY : layer
-
-# clean rule for target.
-sources/modules/CMakeFiles/layer.dir/clean:
-	$(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/clean
-.PHONY : sources/modules/CMakeFiles/layer.dir/clean
-
-# clean rule for target.
-clean: sources/modules/CMakeFiles/layer.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target sources/modules/CMakeFiles/nn.dir
-
-# All Build rule for target.
-sources/modules/CMakeFiles/nn.dir/all: sources/modules/CMakeFiles/activationfunctions.dir/all
-sources/modules/CMakeFiles/nn.dir/all: sources/modules/CMakeFiles/layer.dir/all
-	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/depend
-	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/neuralcpp/build/CMakeFiles --progress-num=7,8 "Built target nn"
-.PHONY : sources/modules/CMakeFiles/nn.dir/all
-
-# Include target in all.
-all: sources/modules/CMakeFiles/nn.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-sources/modules/CMakeFiles/nn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/nn.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/neuralcpp/build/CMakeFiles 0
-.PHONY : sources/modules/CMakeFiles/nn.dir/rule
-
-# Convenience name for target.
-nn: sources/modules/CMakeFiles/nn.dir/rule
-
-.PHONY : nn
-
-# clean rule for target.
-sources/modules/CMakeFiles/nn.dir/clean:
-	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/clean
-.PHONY : sources/modules/CMakeFiles/nn.dir/clean
-
-# clean rule for target.
-clean: sources/modules/CMakeFiles/nn.dir/clean
 
 .PHONY : clean
 

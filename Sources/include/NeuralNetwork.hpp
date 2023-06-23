@@ -13,7 +13,7 @@ class NeuralNetwork {
 public:
     NeuralNetwork(NeuralNetArch_t & architecture);
 
-    void forwardProp(A_Func_Type af);
+    void forwardProp(ActivationType af);
     arma::mat getOutput();
     void setInput(arma::mat & input);
     void randomize(float min, float max);

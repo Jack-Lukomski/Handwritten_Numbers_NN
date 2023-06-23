@@ -7,12 +7,16 @@
 #IncludeRegexTransform: 
 
 /root/neuralcpp/sources/include/A_Func.hpp
-armadillo
+map
 -
 functional
+-
+armadillo
 -
 
 /root/neuralcpp/sources/modules/A_Func.cpp
 ../include/A_Func.hpp
 /root/neuralcpp/sources/include/A_Func.hpp
+cmath
+-
 

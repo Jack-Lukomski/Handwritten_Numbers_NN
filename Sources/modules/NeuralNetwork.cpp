@@ -13,10 +13,9 @@ NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture)
     }
 }
 
-void NeuralNetwork::forwardProp(A_Func_Type af)
+void NeuralNetwork::forwardProp(ActivationType af)
 {
     A_Func actFunc(af);
-    std::cout << "Input" << _activations[0] << std::endl;
     for (size_t i = 0; i < _layerCount; ++i) {
         _activations[i + 1] = _activations[i] * _weights[i];
         _activations[i + 1] += _biases[i];

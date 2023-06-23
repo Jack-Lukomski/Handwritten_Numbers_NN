@@ -111,36 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-sources/modules/CMakeFiles/activationfunctions.dir/rule:
-	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/activationfunctions.dir/rule
-.PHONY : sources/modules/CMakeFiles/activationfunctions.dir/rule
-
-# Convenience name for target.
-activationfunctions: sources/modules/CMakeFiles/activationfunctions.dir/rule
-
-.PHONY : activationfunctions
-
-# fast build rule for target.
-activationfunctions/fast:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/build
-.PHONY : activationfunctions/fast
-
-# Convenience name for target.
-sources/modules/CMakeFiles/layer.dir/rule:
-	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/layer.dir/rule
-.PHONY : sources/modules/CMakeFiles/layer.dir/rule
-
-# Convenience name for target.
-layer: sources/modules/CMakeFiles/layer.dir/rule
-
-.PHONY : layer
-
-# fast build rule for target.
-layer/fast:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/build
-.PHONY : layer/fast
-
-# Convenience name for target.
 sources/modules/CMakeFiles/nn.dir/rule:
 	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/nn.dir/rule
 .PHONY : sources/modules/CMakeFiles/nn.dir/rule
@@ -154,6 +124,21 @@ nn: sources/modules/CMakeFiles/nn.dir/rule
 nn/fast:
 	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/build
 .PHONY : nn/fast
+
+# Convenience name for target.
+sources/modules/CMakeFiles/activationfunctions.dir/rule:
+	cd /root/neuralcpp/build && $(MAKE) -f CMakeFiles/Makefile2 sources/modules/CMakeFiles/activationfunctions.dir/rule
+.PHONY : sources/modules/CMakeFiles/activationfunctions.dir/rule
+
+# Convenience name for target.
+activationfunctions: sources/modules/CMakeFiles/activationfunctions.dir/rule
+
+.PHONY : activationfunctions
+
+# fast build rule for target.
+activationfunctions/fast:
+	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/build
+.PHONY : activationfunctions/fast
 
 A_Func.o: A_Func.cpp.o
 
@@ -181,33 +166,6 @@ A_Func.s: A_Func.cpp.s
 A_Func.cpp.s:
 	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/A_Func.cpp.s
 .PHONY : A_Func.cpp.s
-
-Layer.o: Layer.cpp.o
-
-.PHONY : Layer.o
-
-# target to build an object file
-Layer.cpp.o:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/Layer.cpp.o
-.PHONY : Layer.cpp.o
-
-Layer.i: Layer.cpp.i
-
-.PHONY : Layer.i
-
-# target to preprocess a source file
-Layer.cpp.i:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/Layer.cpp.i
-.PHONY : Layer.cpp.i
-
-Layer.s: Layer.cpp.s
-
-.PHONY : Layer.s
-
-# target to generate assembly for a file
-Layer.cpp.s:
-	cd /root/neuralcpp/build && $(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/Layer.cpp.s
-.PHONY : Layer.cpp.s
 
 NeuralNetwork.o: NeuralNetwork.cpp.o
 
@@ -244,15 +202,11 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... activationfunctions"
-	@echo "... layer"
 	@echo "... nn"
+	@echo "... activationfunctions"
 	@echo "... A_Func.o"
 	@echo "... A_Func.i"
 	@echo "... A_Func.s"
-	@echo "... Layer.o"
-	@echo "... Layer.i"
-	@echo "... Layer.s"
 	@echo "... NeuralNetwork.o"
 	@echo "... NeuralNetwork.i"
 	@echo "... NeuralNetwork.s"

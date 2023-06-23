@@ -1,20 +1,26 @@
 #ifndef A_FUNC_HPP
 #define A_FUNC_HPP
 
-#include <armadillo>
+#include <map>
 #include <functional>
+#include <armadillo>
 
-enum class A_Func_Type { Sigmoid, Tanh, ReLU };
+enum class ActivationType {
+    SIGMOID,
+    RELU,
+    TANH,
+};
 
 class A_Func {
-public:
-    A_Func(A_Func_Type func);
-    void apply(arma::mat& m);
-    void applyPrime(arma::mat& m);
+    private:
+        std::map<ActivationType, std::function<void(arma::mat&)>> functions;
 
-private:
-    std::function<void(arma::mat&)> activationFunction;
-    std::function<void(arma::mat&)> derivativeFunction;
+        std::function<void(arma::mat&)> currentFunction;
+
+    public:
+        A_Func(ActivationType type);
+
+        void apply(arma::mat& matrix);
 };
 
 #endif // A_FUNC_HPP

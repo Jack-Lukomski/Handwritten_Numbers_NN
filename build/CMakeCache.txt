@@ -173,7 +173,7 @@ neuralcpp_BINARY_DIR:STATIC=/root/neuralcpp/build
 neuralcpp_SOURCE_DIR:STATIC=/root/neuralcpp
 
 //Dependencies for the target
-nn_LIB_DEPENDS:STATIC=general;layer;general;activationfunctions;
+nn_LIB_DEPENDS:STATIC=general;activationfunctions;
 
 
 ########################

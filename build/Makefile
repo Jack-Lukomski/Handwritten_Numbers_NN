@@ -124,32 +124,6 @@ neuralcpp/fast:
 .PHONY : neuralcpp/fast
 
 #=============================================================================
-# Target rules for targets named activationfunctions
-
-# Build rule for target.
-activationfunctions: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 activationfunctions
-.PHONY : activationfunctions
-
-# fast build rule for target.
-activationfunctions/fast:
-	$(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/build
-.PHONY : activationfunctions/fast
-
-#=============================================================================
-# Target rules for targets named layer
-
-# Build rule for target.
-layer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 layer
-.PHONY : layer
-
-# fast build rule for target.
-layer/fast:
-	$(MAKE) -f sources/modules/CMakeFiles/layer.dir/build.make sources/modules/CMakeFiles/layer.dir/build
-.PHONY : layer/fast
-
-#=============================================================================
 # Target rules for targets named nn
 
 # Build rule for target.
@@ -162,6 +136,19 @@ nn/fast:
 	$(MAKE) -f sources/modules/CMakeFiles/nn.dir/build.make sources/modules/CMakeFiles/nn.dir/build
 .PHONY : nn/fast
 
+#=============================================================================
+# Target rules for targets named activationfunctions
+
+# Build rule for target.
+activationfunctions: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 activationfunctions
+.PHONY : activationfunctions
+
+# fast build rule for target.
+activationfunctions/fast:
+	$(MAKE) -f sources/modules/CMakeFiles/activationfunctions.dir/build.make sources/modules/CMakeFiles/activationfunctions.dir/build
+.PHONY : activationfunctions/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -171,9 +158,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... neuralcpp"
-	@echo "... activationfunctions"
-	@echo "... layer"
 	@echo "... nn"
+	@echo "... activationfunctions"
 .PHONY : help
 
 

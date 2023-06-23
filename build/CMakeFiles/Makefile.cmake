@@ -48,7 +48,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "sources/driver/CMakeFiles/neuralcpp.dir/DependInfo.cmake"
-  "sources/modules/CMakeFiles/activationfunctions.dir/DependInfo.cmake"
-  "sources/modules/CMakeFiles/layer.dir/DependInfo.cmake"
   "sources/modules/CMakeFiles/nn.dir/DependInfo.cmake"
+  "sources/modules/CMakeFiles/activationfunctions.dir/DependInfo.cmake"
   )

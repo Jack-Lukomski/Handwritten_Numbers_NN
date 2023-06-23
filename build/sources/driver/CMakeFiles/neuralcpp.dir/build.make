@@ -91,7 +91,6 @@ neuralcpp_EXTERNAL_OBJECTS =
 sources/driver/neuralcpp: sources/driver/CMakeFiles/neuralcpp.dir/main.cpp.o
 sources/driver/neuralcpp: sources/driver/CMakeFiles/neuralcpp.dir/build.make
 sources/driver/neuralcpp: sources/modules/libnn.a
-sources/driver/neuralcpp: sources/modules/liblayer.a
 sources/driver/neuralcpp: sources/modules/libactivationfunctions.a
 sources/driver/neuralcpp: /usr/lib/libarmadillo.so
 sources/driver/neuralcpp: sources/driver/CMakeFiles/neuralcpp.dir/link.txt
