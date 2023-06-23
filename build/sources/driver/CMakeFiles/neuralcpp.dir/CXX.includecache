@@ -19,9 +19,7 @@ vector
 /root/neuralcpp/sources/include/A_Func.hpp
 armadillo
 -
-iostream
--
-vector
+functional
 -
 
 /root/neuralcpp/sources/include/NeuralNetwork.hpp

@@ -13,6 +13,21 @@ NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture)
     }
 }
 
+void NeuralNetwork::forwardProp(A_Func_Type af)
+{
+    A_Func actFunc(af);
+    for (size_t i = 0; i < _layerCount; i++) {
+        _activations[i + 1] = _activations[i] * _weights[i];
+        _activations[i + 1] += _biases[i];
+        actFunc.apply(_activations[i + 1]);
+    }
+}
+
+arma::mat NeuralNetwork::getOutput()
+{
+    return _activations[_layerCount];
+}
+
 void NeuralNetwork::randomize(float min, float max)
 {
     for (size_t i = 0; i < _layerCount; i++) {

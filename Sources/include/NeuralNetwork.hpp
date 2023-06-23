@@ -12,6 +12,8 @@ class NeuralNetwork {
 public:
     NeuralNetwork(NeuralNetArch_t & architecture);
 
+    void forwardProp(A_Func_Type af);
+    arma::mat getOutput();
     void randomize(float min, float max);
     void print() const;
 

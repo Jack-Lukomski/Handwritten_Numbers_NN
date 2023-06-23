@@ -2,31 +2,19 @@
 #define A_FUNC_HPP
 
 #include <armadillo>
-#include <iostream>
-#include <vector>
+#include <functional>
 
-enum class A_FuncType {
-    Sigmoid,
-    Tahn,
-    Relu,
-};
+enum class A_Func_Type { Sigmoid, Tanh, ReLU };
 
 class A_Func {
 public:
-    A_Func(A_FuncType type);
+    A_Func(A_Func_Type func);
+    void apply(arma::mat& m);
+    void applyPrime(arma::mat& m);
 
-    arma::mat apply(arma::mat& matrix);
-    arma::mat applyPrime(arma::mat &matrix);
 private:
-    std::function<void(arma::mat&)> _af;
-    std::function<void(arma::mat&)> _afd;
-
-    void sigmoid(arma::mat& matrix);
-    void tanh(arma::mat& matrix);
-    void relu(arma::mat& matrix);
-    void sigmoidPrime(arma::mat& output);
-    void tanhPrime(arma::mat& output);
-    void reluPrime(arma::mat& input);
+    std::function<void(arma::mat&)> activationFunction;
+    std::function<void(arma::mat&)> derivativeFunction;
 };
 
-#endif /* A_FUNC_HPP */
+#endif // A_FUNC_HPP
