@@ -24,6 +24,7 @@ private:
     std::vector<arma::mat> _weights;
     std::vector<arma::mat> _biases;
     std::vector<arma::mat> _activations;
+    NeuralNetArch_t _arch;
 };
 
 #endif /* NEURALNETWORK_HPP */
