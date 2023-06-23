@@ -1,2 +1,0 @@
-/usr/bin/ar qc libnn.a  CMakeFiles/nn.dir/NeuralNetwork.cpp.o
-/usr/bin/ranlib libnn.a
