@@ -11,11 +11,13 @@ typedef std::vector<uint32_t> NeuralNetArch_t;
 
 class NeuralNetwork {
 public:
-    NeuralNetwork(NeuralNetArch_t & architecture);
+    NeuralNetwork(NeuralNetArch_t & architecture, ActivationType af);
 
-    void forwardProp(ActivationType af);
+    void forwardProp();
+    // NeuralNetwork getGradient(std::vector<arma::mat> inputs, std::vector<arma::mat> outputs, float eps);
+    float getCost(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs);
     arma::mat getOutput();
-    void setInput(arma::mat & input);
+    void setInput(const arma::mat & input);
     void randomize(float min, float max);
     void print() const;
 
@@ -24,6 +26,7 @@ private:
     std::vector<arma::mat> _weights;
     std::vector<arma::mat> _biases;
     std::vector<arma::mat> _activations;
+    ActivationType _af;
     NeuralNetArch_t _arch;
 };
 

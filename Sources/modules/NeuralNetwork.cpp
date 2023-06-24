@@ -1,8 +1,9 @@
 #include "../include/NeuralNetwork.hpp"
 
-NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture)
+NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture, ActivationType af)
 {
     _arch = architecture;
+    _af = af;
     _layerCount = architecture.size()-1;
     _activations.push_back(arma::mat(1, architecture[0], arma::fill::zeros));
 
@@ -13,9 +14,9 @@ NeuralNetwork::NeuralNetwork(NeuralNetArch_t & architecture)
     }
 }
 
-void NeuralNetwork::forwardProp(ActivationType af)
+void NeuralNetwork::forwardProp()
 {
-    A_Func actFunc(af);
+    A_Func actFunc(_af);
     for (size_t i = 0; i < _layerCount; ++i) {
         _activations[i + 1] = _activations[i] * _weights[i];
         _activations[i + 1] += _biases[i];
@@ -23,8 +24,29 @@ void NeuralNetwork::forwardProp(ActivationType af)
     }
 }
 
+// NeuralNetwork NeuralNetwork::getGradient(std::vector<arma::mat> inputs, std::vector<arma::mat> outputs, float eps)
+// {
+//     NeuralNetwork gradient(_arch);
+//     return gradient;
+// }
 
-void NeuralNetwork::setInput(arma::mat & input)
+float NeuralNetwork::getCost(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs)
+{
+    assert(inputs.size() == outputs.size());
+
+    float cost = 0.0;
+
+    for (size_t i = 0; i < inputs.size(); ++i) {
+        NeuralNetwork::setInput(inputs[i]);
+        NeuralNetwork::forwardProp();
+        arma::mat difference = NeuralNetwork::getOutput() - outputs[i];
+        difference = difference % difference;
+        cost += arma::accu(difference);
+    }
+    return cost/inputs.size();
+}
+
+void NeuralNetwork::setInput(const arma::mat & input)
 {
     assert(input.n_rows == _activations[0].n_rows);
     assert(input.n_cols == _activations[0].n_cols);
