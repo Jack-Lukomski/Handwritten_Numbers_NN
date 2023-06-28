@@ -23,7 +23,7 @@ int main ()
     NeuralNetwork nn(arch, ActivationType::SIGMOID);
     nn.print();
     nn.randomize(0, 1);
-    nn.print();
+    nn.print(); 
     nn.setInput(a);
     nn.forwardProp();
     std::cout << "Output: " << nn.getOutput() << std::endl;

@@ -24,11 +24,21 @@ void NeuralNetwork::forwardProp()
     }
 }
 
-// NeuralNetwork NeuralNetwork::getGradient(std::vector<arma::mat> inputs, std::vector<arma::mat> outputs, float eps)
-// {
-//     NeuralNetwork gradient(_arch);
-//     return gradient;
-// }
+NeuralNetwork NeuralNetwork::getGradientFiniteDif(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
+{
+    NeuralNetwork gradient(_arch);
+    float cost = NeuralNetwork::getCost(inputs, outputs);
+    arma::mat saved;
+
+    for (size_t i = 0; i < _layerCount; ++i) {
+        saved = _weights[i];
+        _weights[i] += eps;
+        gradient._weights[i] = (NeuralNetwork::getCost(inputs, outputs) - cost) / eps;
+        _weights[i] = saved;
+    }
+
+    return gradient;
+}
 
 float NeuralNetwork::getCost(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs)
 {
