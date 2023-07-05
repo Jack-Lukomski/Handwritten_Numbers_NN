@@ -24,17 +24,51 @@ void NeuralNetwork::forwardProp()
     }
 }
 
-NeuralNetwork NeuralNetwork::getGradientFiniteDif(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
+void NeuralNetwork::learn(NeuralNetwork gradient, float learnRate)
 {
-    NeuralNetwork gradient(_arch);
-    float cost = NeuralNetwork::getCost(inputs, outputs);
-    arma::mat saved;
+    for (size_t i = 0; i < _layerCount; ++i) {
+        for (size_t j = 0; j < _weights[i].n_rows; ++j) {
+            for (size_t k = 0; k < _weights[i].n_cols; ++k) {
+                _weights[i](j, k) -= learnRate * gradient._weights[i](j, k);
+            }
+        }
+    }
 
     for (size_t i = 0; i < _layerCount; ++i) {
-        saved = _weights[i];
-        _weights[i] += eps;
-        gradient._weights[i] = (NeuralNetwork::getCost(inputs, outputs) - cost) / eps;
-        _weights[i] = saved;
+        for (size_t j = 0; j < _biases[i].n_rows; ++j) {
+            for (size_t k = 0; k < _biases[i].n_cols; ++k) {
+                _biases[i](j, k) -= learnRate * gradient._biases[i](j, k);
+            }
+        }
+    }
+}
+
+NeuralNetwork NeuralNetwork::getGradientFiniteDif(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
+{
+    NeuralNetwork gradient(_arch, _af);
+    float cost = NeuralNetwork::getCost(inputs, outputs);
+    float saved;
+
+    for (size_t i = 0; i < _layerCount; ++i) {
+        for (size_t j = 0; j < _weights[i].n_rows; ++j) {
+            for (size_t k = 0; k < _weights[i].n_cols; ++k) {
+                saved = _weights[i](j, k);
+                _weights[i](j, k) += eps;
+                gradient._weights[i](j, k) = ((NeuralNetwork::getCost(inputs, outputs) - cost) / eps);
+                _weights[i](j, k) = saved;
+            }
+        }
+    }
+
+    for (size_t i = 0; i < _layerCount; ++i) {
+        for (size_t j = 0; j < _biases[i].n_rows; ++j) {
+            for (size_t k = 0; k < _biases[i].n_cols; ++k) {
+                saved = _biases[i](j, k);
+                _biases[i](j, k) += eps;
+                gradient._biases[i](j, k) = ((NeuralNetwork::getCost(inputs, outputs) - cost) / eps);
+                _biases[i](j, k) = saved;
+            }
+        }
     }
 
     return gradient;

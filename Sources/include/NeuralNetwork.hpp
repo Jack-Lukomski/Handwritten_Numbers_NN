@@ -14,6 +14,7 @@ public:
     NeuralNetwork(NeuralNetArch_t & architecture, ActivationType af);
 
     void forwardProp();
+    void learn(NeuralNetwork gradient, float learnRate);
     NeuralNetwork getGradientFiniteDif(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps);
     float getCost(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs);
     arma::mat getOutput();

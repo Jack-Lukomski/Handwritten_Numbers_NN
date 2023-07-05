@@ -24,9 +24,18 @@ int main ()
     nn.print();
     nn.randomize(0, 1);
     nn.print(); 
-    nn.setInput(a);
-    nn.forwardProp();
-    std::cout << "Output: " << nn.getOutput() << std::endl;
-    std::cout << "cost: " << nn.getCost(inputs, outputs) << std::endl;
+    for (size_t i = 0; i < 10000; ++i) {
+        NeuralNetwork gradient = nn.getGradientFiniteDif(inputs, outputs, 1e-1);
+        nn.learn(gradient, 1e-1);
+        std::cout << nn.getCost(inputs, outputs) << std::endl;
+    }
+
+    for (size_t i = 0; i < inputs.size(); ++i) {
+        std::cout << "Input is: " << inputs[i] << "Output should be: " << outputs[i];
+        nn.setInput(inputs[i]);
+        nn.forwardProp();
+        std::cout << "The output is: " << nn.getOutput() << "\n\n" << std::endl;
+    }
+
     return 0;
 }
