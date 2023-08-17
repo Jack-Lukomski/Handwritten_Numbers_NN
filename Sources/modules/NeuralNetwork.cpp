@@ -43,32 +43,34 @@ void NeuralNetwork::learn(NeuralNetwork gradient, float learnRate)
     }
 }
 
-void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float learnRate)
+void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float learnRate, unsigned int numEpochs)
 {
     assert(inputs.size() == outputs.size());
 
     size_t n = inputs.size();
-    
-    // iterating through all sample training data
-    for (size_t train_i = 0; train_i < n; ++train_i) {
-        NeuralNetwork::setInput(inputs[train_i]);
-        NeuralNetwork::forwardProp();
 
-        arma::mat output = NeuralNetwork::getOutput();
+    for (unsigned int i = 0; i < numEpochs; i++) {
+        for (size_t train_i = 0; train_i < n; ++train_i) {
+            NeuralNetwork::setInput(inputs[train_i]);
+            NeuralNetwork::forwardProp();
 
-        arma::mat prevLayerError = (output - outputs[train_i]) % (output % (1 - output)); // initially this is the outputError
+            arma::mat output = NeuralNetwork::getOutput();
 
-        for (int layer_i = _layerCount-1; layer_i >= 0; --layer_i) {  // loop starts from last hidden layer towards input layer
-            arma::mat deltaError;
-            if (layer_i == _layerCount-1) {
-                deltaError = prevLayerError;  // for the last hidden layer, the deltaError is just the prevLayerError
-            } else {
-                deltaError = (prevLayerError * _weights[layer_i+1].t()) % (_activations[layer_i+1] % (1 - _activations[layer_i+1]));
+            arma::mat prevLayerError = (output - outputs[train_i]) % (output % (1 - output)); // initially this is the outputError
+
+            for (int layer_i = _layerCount-1; layer_i >= 0; --layer_i) {  // loop starts from last hidden layer towards input layer
+                arma::mat deltaError;
+                
+                if (layer_i == _layerCount-1) {
+                    deltaError = prevLayerError;  // for the last hidden layer, the deltaError is just the prevLayerError
+                } else {
+                    deltaError = (prevLayerError * _weights[layer_i+1].t()) % (_activations[layer_i+1] % (1 - _activations[layer_i+1]));
+                }
+
+                _weights[layer_i] -= learnRate * (_activations[layer_i].t() * deltaError);
+                _biases[layer_i] -= learnRate * arma::sum(deltaError, 0); // Sum the deltas along the rows to match the biases dimensions
+                prevLayerError = deltaError;
             }
-
-            _weights[layer_i] -= learnRate * (_activations[layer_i].t() * deltaError);
-            _biases[layer_i] -= learnRate * arma::sum(deltaError, 0); // Sum the deltas along the rows to match the biases dimensions
-            prevLayerError = deltaError;
         }
     }
 }

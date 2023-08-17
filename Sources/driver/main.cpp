@@ -24,11 +24,7 @@ int main ()
     nn.randomize(0, 1);
     nn.print();
     // NeuralNetwork gradient = nn.backprop(inputs, outputs);
-
-    for (size_t i = 0; i < 50000; ++i) {
-        nn.backprop(inputs, outputs, 0.1);
-        std::cout << "cost=" << nn.getCost(inputs, outputs) << "\n";
-    }
+    nn.backprop(inputs, outputs, 0.1, 15000);
     std::cout << "\n\n\n\n";
 
 
