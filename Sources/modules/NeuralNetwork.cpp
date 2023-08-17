@@ -43,7 +43,39 @@ void NeuralNetwork::learn(NeuralNetwork gradient, float learnRate)
     }
 }
 
-NeuralNetwork NeuralNetwork::getGradientFiniteDif(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
+void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float learnRate)
+{
+    assert(inputs.size() == outputs.size());
+
+    size_t n = inputs.size();
+
+    // std::vector<arma::mat> outputError;
+    
+    // iterating through all sample training data
+    for (size_t train_i = 0; train_i < n; ++train_i) {
+        NeuralNetwork::setInput(inputs[train_i]);
+        NeuralNetwork::forwardProp();
+        arma::mat output = NeuralNetwork::getOutput();
+        arma::mat outputErrors = outputs[train_i] - output; // the output error for one sample
+        
+        arma::mat gradient = ((output * (1 - output)) * outputErrors) * learnRate; // check 1x1
+
+        for (size_t layer_i = _layerCount-1; layer_i > 0; --layer_i) {
+            arma::mat deltaWeights = gradient * _weights[layer_i].t(); // 1x1 * 2x1 -> 1x2 good for i = n | 1x2 * 2x2 good for i = n-1 | 
+            // is this right???
+            _weights[layer_i] += deltaWeights.t(); // 1x2 + 2x1 -> 1x2 good for i = n | 2x2 + 2x1 not good for i = n-1
+
+            arma::mat hiddenError = outputErrors * _weights[layer_i].t(); // 1x1 1x2 good for i = n | 
+            
+            outputErrors = hiddenError; // now a 1x2 for i = 0 | 
+
+            gradient = (hiddenError * (_weights[layer_i-1] * (1 - _weights[layer_i-1]))) * learnRate;
+        }
+    }
+
+}
+
+NeuralNetwork NeuralNetwork::getGradient_fd(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
 {
     NeuralNetwork gradient(_arch, _af);
     float cost = NeuralNetwork::getCost(inputs, outputs);
