@@ -24,8 +24,14 @@ int main ()
     nn.randomize(0, 1);
     nn.print();
     // NeuralNetwork gradient = nn.backprop(inputs, outputs);
-    nn.backprop(inputs, outputs, 0.1);
+
+    for (size_t i = 0; i < 50000; ++i) {
+        nn.backprop(inputs, outputs, 0.1);
+        std::cout << "cost=" << nn.getCost(inputs, outputs) << "\n";
+    }
     std::cout << "\n\n\n\n";
+
+
     nn.print();
     // for (size_t i = 0; i < 100000; ++i) {
     //     NeuralNetwork gradient = nn.getGradient_fd(inputs, outputs, 1e-1);
@@ -33,12 +39,12 @@ int main ()
     //     //std::cout << nn.getCost(inputs, outputs) << std::endl;
     // }
 
-    // for (size_t i = 0; i < inputs.size(); ++i) {
-    //     std::cout << "Input is: " << inputs[i] << "Output should be: " << outputs[i];
-    //     nn.setInput(inputs[i]);
-    //     nn.forwardProp();
-    //     std::cout << "The output is: " << nn.getOutput() << "\n\n" << std::endl;
-    // }
+    for (size_t i = 0; i < inputs.size(); ++i) {
+        std::cout << "Input is: " << inputs[i] << "Output should be: " << outputs[i];
+        nn.setInput(inputs[i]);
+        nn.forwardProp();
+        std::cout << "The output is: " << nn.getOutput() << "\n\n" << std::endl;
+    }
 
     return 0;
 }

@@ -58,24 +58,19 @@ void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::v
 
         arma::mat prevLayerError = (output - outputs[train_i]) % (output % (1 - output)); // initially this is the outputError
 
-for (size_t layer_i = _layerCount-1; layer_i >= 1; --layer_i) {
-    arma::mat deltaError;
-    if (layer_i == _layerCount-1) {
-        // If current layer is the output layer
-        deltaError = prevLayerError;
-    } else {
-        deltaError = (prevLayerError * _weights[layer_i].t()) 
-                     % (_activations[layer_i] % (1 - _activations[layer_i]));
+        for (int layer_i = _layerCount-1; layer_i >= 0; --layer_i) {  // loop starts from last hidden layer towards input layer
+            arma::mat deltaError;
+            if (layer_i == _layerCount-1) {
+                deltaError = prevLayerError;  // for the last hidden layer, the deltaError is just the prevLayerError
+            } else {
+                deltaError = (prevLayerError * _weights[layer_i+1].t()) % (_activations[layer_i+1] % (1 - _activations[layer_i+1]));
+            }
+
+            _weights[layer_i] -= learnRate * (_activations[layer_i].t() * deltaError);
+            _biases[layer_i] -= learnRate * arma::sum(deltaError, 0); // Sum the deltas along the rows to match the biases dimensions
+            prevLayerError = deltaError;
+        }
     }
-
-    _weights[layer_i-1] -= learnRate * (_activations[layer_i-1].t() * deltaError);
-    _biases[layer_i-1] -= learnRate * arma::sum(deltaError, 0);
-    prevLayerError = deltaError;
-}
-
-
-    }
-
 }
 
 NeuralNetwork NeuralNetwork::getGradient_fd(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
