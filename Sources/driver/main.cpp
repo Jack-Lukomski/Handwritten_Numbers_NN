@@ -23,10 +23,9 @@ int main ()
     NeuralNetwork nn(arch, ActivationType::SIGMOID);
     nn.randomize(0, 1);
     nn.print();
-    //nn.print();
     // NeuralNetwork gradient = nn.backprop(inputs, outputs);
     nn.backprop(inputs, outputs, 0.1);
-
+    std::cout << "\n\n\n\n";
     nn.print();
     // for (size_t i = 0; i < 100000; ++i) {
     //     NeuralNetwork gradient = nn.getGradient_fd(inputs, outputs, 1e-1);
