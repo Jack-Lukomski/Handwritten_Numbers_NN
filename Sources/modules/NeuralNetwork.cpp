@@ -24,25 +24,6 @@ void NeuralNetwork::forwardProp()
     }
 }
 
-void NeuralNetwork::learn(NeuralNetwork gradient, float learnRate)
-{
-    for (size_t i = 0; i < _layerCount; ++i) {
-        for (size_t j = 0; j < _weights[i].n_rows; ++j) {
-            for (size_t k = 0; k < _weights[i].n_cols; ++k) {
-                _weights[i](j, k) -= learnRate * gradient._weights[i](j, k);
-            }
-        }
-    }
-
-    for (size_t i = 0; i < _layerCount; ++i) {
-        for (size_t j = 0; j < _biases[i].n_rows; ++j) {
-            for (size_t k = 0; k < _biases[i].n_cols; ++k) {
-                _biases[i](j, k) -= learnRate * gradient._biases[i](j, k);
-            }
-        }
-    }
-}
-
 void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float learnRate, unsigned int numEpochs)
 {
     assert(inputs.size() == outputs.size());
@@ -60,7 +41,7 @@ void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::v
 
             for (int layer_i = _layerCount-1; layer_i >= 0; --layer_i) {  // loop starts from last hidden layer towards input layer
                 arma::mat deltaError;
-                
+
                 if (layer_i == _layerCount-1) {
                     deltaError = prevLayerError;  // for the last hidden layer, the deltaError is just the prevLayerError
                 } else {
@@ -73,37 +54,6 @@ void NeuralNetwork::backprop(const std::vector<arma::mat> & inputs, const std::v
             }
         }
     }
-}
-
-NeuralNetwork NeuralNetwork::getGradient_fd(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs, float eps)
-{
-    NeuralNetwork gradient(_arch, _af);
-    float cost = NeuralNetwork::getCost(inputs, outputs);
-    float saved;
-
-    for (size_t i = 0; i < _layerCount; ++i) {
-        for (size_t j = 0; j < _weights[i].n_rows; ++j) {
-            for (size_t k = 0; k < _weights[i].n_cols; ++k) {
-                saved = _weights[i](j, k);
-                _weights[i](j, k) += eps;
-                gradient._weights[i](j, k) = ((NeuralNetwork::getCost(inputs, outputs) - cost) / eps);
-                _weights[i](j, k) = saved;
-            }
-        }
-    }
-
-    for (size_t i = 0; i < _layerCount; ++i) {
-        for (size_t j = 0; j < _biases[i].n_rows; ++j) {
-            for (size_t k = 0; k < _biases[i].n_cols; ++k) {
-                saved = _biases[i](j, k);
-                _biases[i](j, k) += eps;
-                gradient._biases[i](j, k) = ((NeuralNetwork::getCost(inputs, outputs) - cost) / eps);
-                _biases[i](j, k) = saved;
-            }
-        }
-    }
-
-    return gradient;
 }
 
 float NeuralNetwork::getCost(const std::vector<arma::mat> & inputs, const std::vector<arma::mat> & outputs)

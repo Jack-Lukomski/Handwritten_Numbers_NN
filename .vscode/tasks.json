@@ -10,7 +10,7 @@
           "--rm",
           "-v",
           "${workspaceFolder}:/root/neuralcpp",
-          "neuralcpp",
+          "neuralcpp-env",
           "/bin/bash",
           "-c",
           "cd /root/neuralcpp && cd build && cmake .. && make && ./sources/driver/neuralcpp"
